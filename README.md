@@ -2,9 +2,10 @@
 
 **Local first Discord & Community Signal Vault, Voice Gated Content Studio, and `stdio` MCP Server built for personal daily Discord workflows and Kiroween 2026.**
 
-1. **Primary Kiroween Category**: `Frankenstein`
-2. **Targeted Bonuses**: `Best Kiro Crew App`, `Best Demo`, `Social Blitz Prize`, `Bonus Blog Prize`, `Best Startup Project`
-3. **Architecture Ancestors**:
+1. **Live Landing Page & Interactive Workbench**: [`https://harrymove-ctrl.github.io/echoloom/`](https://harrymove-ctrl.github.io/echoloom/) (`./public`)
+2. **Primary Kiroween Category**: `Frankenstein`
+3. **Targeted Bonuses**: `Best Kiro Crew App`, `Best Demo`, `Social Blitz Prize`, `Bonus Blog Prize`, `Best Startup Project`
+4. **Architecture Ancestors**:
    1. `openclaw/discrawl`: Hardened pure Go SQLite FTS5 indexing, OS Keychain & `O_NOFOLLOW` ACL checks, `@me` DM isolation, and zero network `wiretap` cache reads.
    2. `jackwener/discord-cli`: Terminal analytics commands (`today`, `recent`, `search`, `top`, `timeline`) and deterministic `{ ok, schema_version, data | error }` output contracts (user token extractor intentionally omitted).
    3. `jackwener/OpenCLI` & Chrome DevTools MCP: Read only browser tab DOM snapshot ingestion for non owned community channels without scraping auth tokens.

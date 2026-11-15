@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EchoLoom | Local Community Signal Vault &amp; Kiro Spec Studio</title>
+  <meta name="description" content="Turn community Discord threads into verified Kiro specs, generative property based test invariants, and voice gated guides without touching user tokens.">
+  <meta name="theme-color" content="#3565F5">
+  <link rel="canonical" href="https://harrymove-ctrl.github.io/echoloom/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://harrymove-ctrl.github.io/echoloom/">
+  <meta property="og:title" content="EchoLoom | Local Community Signal Vault &amp; Kiro Spec Studio">
+  <meta property="og:description" content="Sub 15ms SQLite FTS5 archive, zero selfbot ingestion, five PBT invariants, and voice gated stdio MCP server built with Kiro Specs and Hooks.">
+  <meta property="og:image" content="https://harrymove-ctrl.github.io/echoloom/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="sky-stage" id="top">
+    <div class="cloud-layer" aria-hidden="true">
+      <div class="cloud cloud-left"></div>
+      <div class="cloud cloud-top-left"></div>
+      <div class="cloud cloud-mid-top"></div>
+      <div class="cloud cloud-right-top"></div>
+      <div class="cloud cloud-right"></div>
+    </div>
+
+    <header class="top-nav-shell">
+      <nav class="top-nav" aria-label="Primary navigation">
+        <div class="nav-pill nav-pill-left">
+          <a class="brand-chip" href="#top" aria-label="EchoLoom Home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none">
+                <path d="M7 11.5C10 8.5 13 8.5 16 11.5C19 14.5 22 14.5 25 11.5" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/>
+                <path d="M7 16.5C10 13.5 13 13.5 16 16.5C19 19.5 22 19.5 25 16.5" stroke="#DCE8FF" stroke-width="2.6" stroke-linecap="round"/>
+                <path d="M7 21.5C10 18.5 13 18.5 16 21.5C19 24.5 22 24.5 25 21.5" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="brand-name">EchoLoom</span>
+          </a>
+
+          <ul class="nav-links" role="list">
+            <li><a href="#workbench">Live Studio</a></li>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#invariants">PBT Invariants</a></li>
+            <li><a href="#lineage">Lineage</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-pill nav-pill-right">
+          <a class="repo-badge" href="https://github.com/harrymove-ctrl/echoloom" target="_blank" rel="noopener noreferrer">
+            <svg class="octo-mini" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12c0 4.6 3 8.5 7.2 9.9.5.1.7-.2.7-.5v-2c-2.9.6-3.5-1.2-3.5-1.2-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.3-.3-4.8-1.2-4.8-5.2 0-1.1.4-2.1 1.1-2.8-.1-.3-.5-1.4.1-2.8 0 0 .9-.3 2.9 1.1.9-.2 1.8-.4 2.7-.4s1.8.1 2.7.4c2-1.4 2.9-1.1 2.9-1.1.6 1.4.2 2.5.1 2.8.7.8 1.1 1.7 1.1 2.8 0 4-2.5 4.9-4.8 5.2.4.3.8 1 .8 2v2.9c0 .3.2.6.7.5 4.2-1.4 7.2-5.3 7.2-9.9 0-5.8-4.7-10.5-10.5-10.5z"/>
+            </svg>
+            <span>MIT</span>
+            <span class="badge-star">Open Source</span>
+          </a>
+          <a class="nav-text-link" href="https://github.com/harrymove-ctrl/echoloom/tree/main/.kiro" target="_blank" rel="noopener noreferrer">/.kiro Specs</a>
+          <a class="nav-cta" href="#workbench">Try workbench</a>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-expanded="false" aria-controls="mobileDrawer">Menu</button>
+        </div>
+      </nav>
+
+      <div class="mobile-drawer" id="mobileDrawer" hidden>
+        <a href="#workbench">Live Studio</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#invariants">PBT Invariants</a>
+        <a href="#lineage">Lineage</a>
+        <a href="https://github.com/harrymove-ctrl/echoloom/tree/main/.kiro" target="_blank" rel="noopener noreferrer">Inspect /.kiro Specs</a>
+        <a href="https://github.com/harrymove-ctrl/echoloom" target="_blank" rel="noopener noreferrer">Open GitHub Repository</a>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-emblem" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none">
+            <rect width="48" height="48" rx="14" fill="rgba(255,255,255,0.2)"/>
+            <path d="M11 18C15.5 13.5 19.5 13.5 24 18C28.5 22.5 32.5 22.5 37 18" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M11 25C15.5 20.5 19.5 20.5 24 25C28.5 29.5 32.5 29.5 37 25" stroke="#DCE8FF" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M11 32C15.5 27.5 19.5 27.5 24 32C28.5 36.5 32.5 36.5 37 32" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <h1 class="hero-title" id="hero-title">Turn community threads<br>into verified Kiro specs.</h1>
+
+        <p class="hero-sub">Sub 15ms local SQLite FTS5 vault, three zero selfbot ingestion lanes, five generative property based test invariants, and a voice gated stdio MCP server.</p>
+
+        <div class="hero-card-wrap">
+          <div class="callout-note" aria-hidden="true">
+            <span class="callout-line">0 user tokens</span>
+            <span class="callout-line">100% local SQLite</span>
+            <svg class="callout-arrow" viewBox="0 0 44 34" fill="none">
+              <path d="M36 4C27 7 19 14 10 26M10 26L12 16M10 26L20 25" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="hero-pill-card">
+            <a class="hero-octo-link" href="https://github.com/harrymove-ctrl/echoloom" target="_blank" rel="noopener noreferrer" aria-label="Open EchoLoom GitHub repository">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12c0 4.6 3 8.5 7.2 9.9.5.1.7-.2.7-.5v-2c-2.9.6-3.5-1.2-3.5-1.2-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.3-.3-4.8-1.2-4.8-5.2 0-1.1.4-2.1 1.1-2.8-.1-.3-.5-1.4.1-2.8 0 0 .9-.3 2.9 1.1.9-.2 1.8-.4 2.7-.4s1.8.1 2.7.4c2-1.4 2.9-1.1 2.9-1.1.6 1.4.2 2.5.1 2.8.7.8 1.1 1.7 1.1 2.8 0 4-2.5 4.9-4.8 5.2.4.3.8 1 .8 2v2.9c0 .3.2.6.7.5 4.2-1.4 7.2-5.3 7.2-9.9 0-5.8-4.7-10.5-10.5-10.5z"/>
+              </svg>
+            </a>
+
+            <div class="hero-card-body">
+              <div class="hero-card-eyebrow">Open Source under MIT · harrymove-ctrl/echoloom</div>
+              <div class="hero-card-headline">Built for Kiro Specs, Hooks &amp; <span class="ink-tag">PBT</span></div>
+
+              <div class="clone-row">
+                <code class="clone-cmd" id="cloneCommand">git clone https://github.com/harrymove-ctrl/echoloom.git</code>
+                <button class="copy-btn" id="copyCloneBtn" type="button" aria-label="Copy git clone command">Copy command</button>
+                <a class="spec-btn" href="https://github.com/harrymove-ctrl/echoloom/tree/main/.kiro" target="_blank" rel="noopener noreferrer">Inspect /.kiro</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="works-with" aria-label="Compatible runtimes and tools">
+            <span class="works-label">WORKS WITH</span>
+            <span class="tool-chip">Kiro IDE</span>
+            <span class="tool-chip">Kiro CLI</span>
+            <span class="tool-chip">Kiro Crew</span>
+            <span class="tool-chip">Claude Code</span>
+            <span class="tool-chip">MCP stdio</span>
+            <span class="tool-chip">SQLite FTS5</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <main id="main-content">
+    <section class="section section-light" id="workbench" aria-labelledby="workbench-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="workbench-title">From raw community question to verified spec and safe draft.</h2>
+          <p class="section-lead">Pick a real anonymized community signal cluster below to inspect EchoLoom's CLI JSON contract, compiled <code>/.kiro/specs/</code> invariant, and <code>voiceGate</code> plus <code>confirmLive</code> approval diff.</p>
+        </div>
+
+        <div class="workbench-shell">
+          <aside class="scenario-list" aria-label="Community signal clusters">
+            <div class="pane-label">1. Select Signal Cluster</div>
+
+            <button class="scenario-btn is-active" type="button" data-scenario="handoff" aria-pressed="true">
+              <span class="scenario-meta">Cluster 01 · Unanswered Question</span>
+              <strong class="scenario-title">Cross agent session handoff continuity</strong>
+              <span class="scenario-foot">External forum · PII scrubbed · Spec ready</span>
+            </button>
+
+            <button class="scenario-btn" type="button" data-scenario="blast" aria-pressed="false">
+              <span class="scenario-meta">Cluster 02 · Benchmark Signal</span>
+              <strong class="scenario-title">Autonomous repair blast radius guard</strong>
+              <span class="scenario-foot">60 CI repair runs · 81 vs. 5 line diff cap</span>
+            </button>
+
+            <button class="scenario-btn" type="button" data-scenario="mcp" aria-pressed="false">
+              <span class="scenario-meta">Cluster 03 · Integration Friction</span>
+              <strong class="scenario-title">Project local stdio MCP planner binding</strong>
+              <span class="scenario-foot">Zero restart proxy · Role scoped tools</span>
+            </button>
+          </aside>
+
+          <div class="inspector-pane">
+            <div class="inspector-bar">
+              <div class="tab-group" role="tablist" aria-label="EchoLoom output views">
+                <button class="tab-btn is-active" role="tab" type="button" data-tab="cli" aria-selected="true" id="tab-cli">Vault &amp; CLI JSON</button>
+                <button class="tab-btn" role="tab" type="button" data-tab="spec" aria-selected="false" id="tab-spec">Compiled /.kiro Spec</button>
+                <button class="tab-btn" role="tab" type="button" data-tab="voice" aria-selected="false" id="tab-voice">VoiceGate &amp; Diff</button>
+              </div>
+
+              <button class="live-toggle" id="confirmLiveBtn" type="button" aria-pressed="false">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span id="confirmLiveLabel">Mode: Dry Run Preview</span>
+              </button>
+            </div>
+
+            <div class="inspector-metrics" id="inspectorMetrics">
+              <span class="metric-item">FTS5 Query: <strong>6.4 ms</strong></span>
+              <span class="metric-item">DM Leaks: <strong>0</strong></span>
+              <span class="metric-item">User Tokens: <strong>0</strong></span>
+              <span class="metric-item">VoiceGate: <strong>PASS</strong></span>
+            </div>
+
+            <pre class="code-stage" id="workbenchCode" tabindex="0" aria-live="polite"></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="how-it-works" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="how-title">Four deterministic stages from noisy channel to local binary.</h2>
+          <p class="section-lead">Every stage enforces strict privilege isolation so research channels you do not administer stay completely separated from owned project publishing bots.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-num">01</div>
+            <h3>Three Tier Safe Ingestion</h3>
+            <p>Owned servers sync through official scoped Discord Bot tokens stored in macOS Keychain. External servers capture passive desktop cache entries via <code>os.OpenRoot</code> or read only browser DOM snapshots without ever extracting personal <code>localStorage</code> user tokens.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-num">02</div>
+            <h3>Local SQLite FTS5 Vault</h3>
+            <p>Normalized events write to a <code>0600</code> local SQLite WAL database indexed with FTS5 for sub <code>15 ms</code> queries. Personal <code>@me</code> direct messages are quarantined by schema and blocked from every search, signal cluster, and MCP read by default.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-num">03</div>
+            <h3>Kiro Specs, Hooks &amp; Crew</h3>
+            <p>Anonymous signal clusters compile directly into structured <code>/.kiro/specs/</code> contracts, enforced by <code>/.kiro/steering/</code> boundaries and automated <code>/.kiro/hooks/</code> quality gates executed by four specialized Kiro Crew agents.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-num">04</div>
+            <h3>VoiceGate &amp; Reloadable MCP</h3>
+            <p>Drafted guides pass <code>voiceGate</code> scoring against the owner's writing style while stripping AI filler, hidden characters, dashed punctuation, and external verbatim overlap before <code>echoloom-mcp</code> exposes dry run previews for human <code>confirmLive</code> approval.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="invariants" aria-labelledby="invariants-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="invariants-title">Five formal Property Based Testing invariants.</h2>
+          <p class="section-lead">Defined in <code>.kiro/specs/requirements.md</code> and verified across <code>1,000+</code> generated adversarial inputs per invariant instead of relying solely on happy path examples.</p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="invariant-table">
+            <thead>
+              <tr>
+                <th scope="col">Invariant ID</th>
+                <th scope="col">Subsystem</th>
+                <th scope="col">Mathematical Contract Enforced</th>
+                <th scope="col">Verification Target</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>INV-01</code></td>
+                <td>Attachment SSRF Guard</td>
+                <td>Accepts attachment media fetches only over HTTPS port 443 to allowlisted Discord CDN hosts with zero IP literals across up to 3 redirects.</td>
+                <td><code>1,000+</code> fuzzed URLs</td>
+              </tr>
+              <tr>
+                <td><code>INV-02</code></td>
+                <td><code>@me</code> DM Quarantine</td>
+                <td>Default CLI search, signal clusterer, draft context, and MCP read tools return zero rows where <code>guild_id == "@me"</code> across arbitrary interleavings.</td>
+                <td><code>1,000+</code> mixed store states</td>
+              </tr>
+              <tr>
+                <td><code>INV-03</code></td>
+                <td><code>voiceGate</code> Filter</td>
+                <td>Rejects every candidate containing zero width Unicode artifacts, forbidden dash punctuation, raw HTML tags, or more than 12 consecutive external source words.</td>
+                <td><code>1,000+</code> mutated drafts</td>
+              </tr>
+              <tr>
+                <td><code>INV-04</code></td>
+                <td><code>confirmLive</code> Governor</td>
+                <td>Discord write transport executes only when <code>live: true</code>, <code>confirmLive: true</code>, and non empty <code>approvedBy</code> are all satisfied concurrently.</td>
+                <td><code>1,000+</code> flag permutations</td>
+              </tr>
+              <tr>
+                <td><code>INV-05</code></td>
+                <td>Cross Tier Idempotency</td>
+                <td>Replaying shuffled duplicate events across Bot API, desktop cache, and browser snapshots converges to identical row counts and FTS5 index entries.</td>
+                <td><code>1,000+</code> shuffled streams</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="lineage" aria-labelledby="lineage-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="lineage-title">Built on proven open source foundations, with hard security gaps closed.</h2>
+          <p class="section-lead">EchoLoom synthesizes battle tested local architecture from five upstream projects for the Kiroween Frankenstein category while fixing real operational vulnerabilities by specification.</p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="invariant-table">
+            <thead>
+              <tr>
+                <th scope="col">Reference Ancestor</th>
+                <th scope="col">What EchoLoom Adopts</th>
+                <th scope="col">Hardening Upgrade in EchoLoom</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>openclaw/discrawl</code></td>
+                <td>Pure Go SQLite WAL + FTS5 local indexing, Keychain ACL store, zero network cache concept.</td>
+                <td>Closes SSRF gap on attachment URLs, swaps default <code>source = "both"</code> to isolate <code>@me</code> DMs, and hardens SQL URI escaping.</td>
+              </tr>
+              <tr>
+                <td><code>jackwener/discord-cli</code></td>
+                <td>Ergonomic analytics verbs (<code>today</code>, <code>recent</code>, <code>top</code>, <code>timeline</code>) and deterministic JSON envelope.</td>
+                <td>Removes personal browser user token extraction completely to eliminate account ban risk.</td>
+              </tr>
+              <tr>
+                <td><code>jackwener/OpenCLI</code></td>
+                <td>Read only DOM snapshot pattern for browser tabs where Bot access does not exist.</td>
+                <td>Standardizes Discord Web message/embed/reply selectors into typed non interactive snapshot imports.</td>
+              </tr>
+              <tr>
+                <td><code>ListeningKit (Log)</code></td>
+                <td>Sub 15 ms local reads, reloadable <code>stdio</code> MCP server, <code>voiceGate</code>, and <code>confirmLive</code> governor.</td>
+                <td>Applies editorial clarity and dry run outbound safety to Discord engineering communities and Kiro specs.</td>
+              </tr>
+              <tr>
+                <td><code>oblien/mindwire</code></td>
+                <td>Daemon orchestration, role isolated multi agent boundaries, and filesystem sandboxing.</td>
+                <td>Maps agent separation directly onto four Kiro Crew specialists with automated root guard hooks.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta-banner">
+          <div>
+            <div class="kicker kicker-light">Kiroween 2026 Submission</div>
+            <h2 id="cta-title">Inspect every PRD, epic, steering rule, and hook directly on GitHub.</h2>
+            <p class="cta-copy">EchoLoom ships its complete <code>/.kiro/{specs,hooks,steering}</code> tree unignored at repository root under the MIT License.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="cta-primary" href="https://github.com/harrymove-ctrl/echoloom" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
+            <a class="cta-secondary" href="https://github.com/harrymove-ctrl/echoloom/tree/main/docs/epics" target="_blank" rel="noopener noreferrer">Browse 8 Epics &amp; 28 Issues</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="footer-brand">EchoLoom</div>
+        <p class="footer-note">Local first community signal vault, spec compiler, and voice gated MCP studio built under MIT License by <code>harrymove-ctrl</code>.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Kiro Artifacts</div>
+        <ul class="footer-list" role="list">
+          <li><a href="https://github.com/harrymove-ctrl/echoloom/tree/main/.kiro/specs" target="_blank" rel="noopener noreferrer">Requirements, Design &amp; Tasks</a></li>
+          <li><a href="https://github.com/harrymove-ctrl/echoloom/tree/main/.kiro/steering" target="_blank" rel="noopener noreferrer">Product, Tech &amp; Security Steering</a></li>
+          <li><a href="https://github.com/harrymove-ctrl/echoloom/blob/main/.kiro/hooks/hooks.json" target="_blank" rel="noopener noreferrer">Automated Hook Definitions</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Specification Docs</div>
+        <ul class="footer-list" role="list">
+          <li><a href="https://github.com/harrymove-ctrl/echoloom/tree/main/docs/requirements" target="_blank" rel="noopener noreferrer">PRDs 01 through 04</a></li>
+          <li><a href="https://github.com/harrymove-ctrl/echoloom/blob/main/docs/NON_OWNED_CHANNEL_GUIDE.md" target="_blank" rel="noopener noreferrer">Non Owned Channel Guide</a></li>
+          <li><a href="https://github.com/harrymove-ctrl/echoloom/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
