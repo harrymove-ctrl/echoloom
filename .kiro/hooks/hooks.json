@@ -1,0 +1,41 @@
+{
+  "version": "1",
+  "hooks": [
+    {
+      "id": "kiroween-root-guard",
+      "name": "Verify .kiro is never gitignored",
+      "trigger": {
+        "type": "fileEdited",
+        "patterns": [".gitignore"]
+      },
+      "action": {
+        "type": "runCommand",
+        "command": "if git check-ignore -q .kiro .kiro/specs/requirements.md .kiro/hooks/hooks.json .kiro/steering/product.md; then echo 'ERROR: .kiro must never be ignored'; exit 1; fi"
+      }
+    },
+    {
+      "id": "zero-dash-prose-audit",
+      "name": "Audit PRDs, Specs, Steering and Docs for Zero-Dashes & Anti-Slop",
+      "trigger": {
+        "type": "fileSaved",
+        "patterns": ["README.md", "AGENTS.md", "docs/**/*.md", ".kiro/**/*.md"]
+      },
+      "action": {
+        "type": "runCommand",
+        "command": "node scripts/check-prose.mjs"
+      }
+    },
+    {
+      "id": "pbt-security-invariant-gate",
+      "name": "Run Property-Based Testing Invariants on Core Changes",
+      "trigger": {
+        "type": "fileSaved",
+        "patterns": ["internal/**/*.go", "src/**/*.ts", "tests/pbt/**/*"]
+      },
+      "action": {
+        "type": "runCommand",
+        "command": "echo 'Running EchoLoom PBT invariant gate (Go + Bun fast-check)' && ([ -d tests/pbt ] && (go test ./internal/... && bun test tests/pbt) || echo 'PBT test directories scaffolded during EPIC-01/02')"
+      }
+    }
+  ]
+}

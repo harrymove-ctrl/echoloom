@@ -1,0 +1,571 @@
+{
+  "defaultRepo": "harrymove-ctrl/echoloom",
+  "labels": [
+    { "name": "epic", "color": "5319E7", "description": "Top level initiative grouping related implementation issues" },
+    { "name": "security", "color": "B60205", "description": "Security boundary, credential guard, SSRF, or isolation task" },
+    { "name": "ingestion", "color": "0E8A16", "description": "Discord Bot, passive wiretap cache, or browser snapshot ingest" },
+    { "name": "storage", "color": "1D76DB", "description": "SQLite WAL, FTS5, locking, or schema projection layer" },
+    { "name": "analytics", "color": "006B75", "description": "Terminal CLI analytics and anonymized signal extraction" },
+    { "name": "mcp", "color": "7057FF", "description": "Model Context Protocol server and agent play tools" },
+    { "name": "voice-gate", "color": "FBCA04", "description": "Owner voice matching, AI slop filter, and dry run governor" },
+    { "name": "kiroween", "color": "D93F0B", "description": "Kiroween 2026 specs, hooks, PBT, demo, and Devpost packaging" },
+    { "name": "ui-ux", "color": "E99695", "description": "Haunted Signal Loom web console and visual QA loops" },
+    { "name": "pbt", "color": "C2E0C6", "description": "Generative or fuzz Property Based Testing invariant" }
+  ],
+  "milestones": [
+    {
+      "id": "M1",
+      "title": "M1: Foundation, Store & Official Bot",
+      "dueOn": "2026-11-20T23:59:59Z",
+      "description": "Hardened monorepo, committed /.kiro specs/hooks/steering, Keychain + ACL creds, SQLite WAL FTS5 store, single channel Bot sync and live Gateway tail."
+    },
+    {
+      "id": "M2",
+      "title": "M2: Non Owned Capture & CLI Analytics",
+      "dueOn": "2026-11-26T23:59:59Z",
+      "description": "Zero network wiretap desktop cache reader, OpenCLI + Chrome DevTools snapshot adapter, @me DM quarantine, discord-cli analytics UX, and anonymized signal clusters."
+    },
+    {
+      "id": "M3",
+      "title": "M3: VoiceGate, MCP & Ops Console",
+      "dueOn": "2026-12-01T23:59:59Z",
+      "description": "Personal voiceGate scorer, hot reloading echoloom-mcp stdio server, confirmLive outbound governor, Haunted Signal Loom web console, and Kiro Credits checkpoint."
+    },
+    {
+      "id": "M4",
+      "title": "M4: PBT Proof, Demo & Kiroween Ship",
+      "dueOn": "2026-12-04T21:59:59Z",
+      "description": "All 5 PBT invariant suites, Playwright visual and accessibility proof, live deployed URL, under 3 minute public YouTube demo, and 8 part Devpost write up."
+    }
+  ],
+  "epics": [
+    {
+      "id": "EPIC-01",
+      "title": "Workspace Foundation, /.kiro Specs, Steering & Security Hooks",
+      "milestone": "M1",
+      "labels": ["kiroween", "security"],
+      "summary": "Establish the Go + TypeScript monorepo baseline, MIT license, committed /.kiro directory, automated prose and PBT hooks, secret redaction, and single GitHub contributor identity enforcement.",
+      "prds": ["docs/requirements/README.md", "docs/requirements/prd-04-kiroween-spec-hooks-pbt-and-daily-ship.md"],
+      "issues": [
+        {
+          "id": "ISS-01",
+          "title": "Bootstrap Go + TypeScript monorepo, MIT LICENSE and non ignoring .gitignore",
+          "day": "Day 1 (2026-11-15)",
+          "milestoneLabel": "M1",
+          "labels": ["kiroween"],
+          "problem": "EchoLoom needs a reproducible Go 1.27 + Bun/TypeScript project baseline with a GitHub detectable MIT license and strict .gitignore rules that never exclude /.kiro.",
+          "desiredBehavior": "Repository builds both Go core packages and TypeScript MCP/UI packages cleanly while preserving /.kiro/{specs,hooks,steering} in git history.",
+          "entryPoints": ["go.mod", "package.json", "LICENSE", ".gitignore"],
+          "acceptanceCriteria": [
+            "Add MIT LICENSE naming harrymove-ctrl at project root.",
+            "Pin Go 1.27 and Node 24.x / Bun >= 1.4 toolchain manifests.",
+            "Configure .gitignore to exclude SQLite DBs and .env secrets while never matching .kiro."
+          ],
+          "verification": "git check-ignore -v .kiro exits with no match and toolchain version check succeeds."
+        },
+        {
+          "id": "ISS-02",
+          "title": "Author Kiro Crew specs, steering docs, custom agents and automated hooks",
+          "day": "Day 1 (2026-11-15)",
+          "milestoneLabel": "M1",
+          "labels": ["kiroween"],
+          "problem": "Kiroween evaluation scores depth across Kiro specs, steering documents, hooks, and multi agent Kiro Crew role separation.",
+          "desiredBehavior": "Committed /.kiro specs, steering guides, and hooks automate zero dash prose linting, PBT runs, and 4 role crew workflows.",
+          "entryPoints": [".kiro/specs/requirements.md", ".kiro/specs/design.md", ".kiro/specs/tasks.md", ".kiro/steering/", ".kiro/hooks/hooks.json"],
+          "acceptanceCriteria": [
+            "Write canonical requirements, design, and task specs in /.kiro/specs/.",
+            "Write product, technical, and security steering docs in /.kiro/steering/.",
+            "Define prose linter, PBT trigger, and .kiro guard hooks in /.kiro/hooks/hooks.json."
+          ],
+          "verification": "node scripts/check-prose.mjs passes with zero violations across all Markdown files in /.kiro/."
+        },
+        {
+          "id": "ISS-03",
+          "title": "Enforce secret redaction, clean error formatter and GitHub identity pre push check",
+          "day": "Day 2 (2026-11-16)",
+          "milestoneLabel": "M1",
+          "labels": ["security"],
+          "problem": "Failure ledger entries, terminal stack traces, or git commits can accidentally expose Bearer tokens, API query secrets, or secondary emails.",
+          "desiredBehavior": "All error serializers scrub secret tokens/URLs cleanly, support numeric --public-errors codes, and git hooks verify harrymove-ctrl identity.",
+          "entryPoints": ["internal/security/redact.go", "internal/cli/public_error.go"],
+          "acceptanceCriteria": [
+            "Scrub Authorization headers, Bearer strings, URLs, query parameters, and secret JSON keys.",
+            "Support --public-errors returning numeric status codes without raw error strings.",
+            "Run git pre push author check cleanly before every commit and push."
+          ],
+          "verification": "Regex fuzz unit test asserts zero plaintext secrets survive redaction."
+        }
+      ]
+    },
+    {
+      "id": "EPIC-02",
+      "title": "Durable Local SQLite FTS5 Vault & 0600 Credential Layer",
+      "milestone": "M1",
+      "labels": ["storage", "security"],
+      "summary": "Build the DDIA style SQLite WAL append only vault, sub 15 ms FTS5 read layer, OS Keychain and ACL file credential resolver, SQL AST guard, and single writer lock.",
+      "prds": ["docs/requirements/prd-01-safe-multi-source-ingestion.md", "docs/requirements/prd-02-local-knowledge-and-signal-engine.md"],
+      "issues": [
+        {
+          "id": "ISS-04",
+          "title": "Implement SQLite WAL event sourced schema with FTS5 and derived projections",
+          "day": "Day 2 (2026-11-16)",
+          "milestoneLabel": "M1",
+          "labels": ["storage"],
+          "problem": "Repeated Discord API calls take seconds per query and risk HTTP 429 bans; local derived projections enable millisecond queries.",
+          "desiredBehavior": "Pure Go SQLite WAL schema persists immutable events and derived messages/FTS5/signals tables rebuildable from scratch at 0600 permissions.",
+          "entryPoints": ["internal/store/schema.sql", "internal/store/store.go"],
+          "acceptanceCriteria": [
+            "Create events, messages, message_fts, channels, members, signal_clusters, drafts, and outbound_ledger tables.",
+            "Implement echoloom storage verify and echoloom storage rebuild commands.",
+            "Enforce 0700 directory permissions and 0600 SQLite database file permissions."
+          ],
+          "verification": "Benchmark measures < 15 ms p95 FTS5 query latency across 50,000 synthetic messages."
+        },
+        {
+          "id": "ISS-05",
+          "title": "Build macOS Keychain + O_NOFOLLOW descriptor bound file credential resolver",
+          "day": "Day 3 (2026-11-17)",
+          "milestoneLabel": "M1",
+          "labels": ["security"],
+          "problem": "Storing bot tokens in plain config files or shell history invites accidental leaks or symlink/ACL bypasses on shared systems.",
+          "desiredBehavior": "Credential resolver prioritizes OS Keychain (echoloom), then env, then descriptor verified 0600 file reads with macOS extended ACL checks.",
+          "entryPoints": ["internal/config/discord_token.go", "internal/config/credential_unix.go", "internal/config/credential_darwin.go"],
+          "acceptanceCriteria": [
+            "Support keyring, env, and file sources with macOS Keychain lookup prioritized.",
+            "Verify O_NOFOLLOW walk from root, 0600 file mode, 0700 parent dir, Nlink == 1, and ACL inspection.",
+            "Reject non Bot formatted tokens with explicit user guidance."
+          ],
+          "verification": "Integration test confirms symlinked or group readable token files fail with deterministic error."
+        },
+        {
+          "id": "ISS-06",
+          "title": "Harden read only SQLite query URI escaping and single statement AST guard",
+          "day": "Day 4 (2026-11-18)",
+          "milestoneLabel": "M1",
+          "labels": ["storage", "security"],
+          "problem": "Raw file:%s?mode=ro DSN formatting breaks on paths with ? or #, and permitting leading PRAGMA statements allows multi statement ATTACH bypasses.",
+          "desiredBehavior": "Read only SQL execution URL escapes DB path cleanly, parses strictly single SELECT/WITH/EXPLAIN statements, and filters @me rows.",
+          "entryPoints": ["internal/store/query.go"],
+          "acceptanceCriteria": [
+            "Encode database paths cleanly with net/url before opening read only connections.",
+            "Reject stacked statements, PRAGMA writes, and ATTACH DATABASE invocations.",
+            "Filter guild_id != '@me' in default read only query execution."
+          ],
+          "verification": "Unit tests block PRAGMA query_only=0; ATTACH and special character path injection inputs."
+        },
+        {
+          "id": "ISS-07",
+          "title": "Add single writer file lock and secret scrubbing subprocess wrapper",
+          "day": "Day 3 (2026-11-17)",
+          "milestoneLabel": "M1",
+          "labels": ["storage", "security"],
+          "problem": "Concurrent sync and MCP background jobs risk SQLite lock races, and external helpers inherit sensitive parent environment variables unless stripped.",
+          "desiredBehavior": "Acquire non blocking O_NOFOLLOW Flock on sync.lock and strip secrets before invoking optional local helper subprocesses.",
+          "entryPoints": ["internal/cli/sync_lock.go", "internal/store/env_scrub.go"],
+          "acceptanceCriteria": [
+            "Use unix.Open(..., O_NOFOLLOW) and Flock LOCK_EX | LOCK_NB for single writer locking.",
+            "Strip DISCORD_BOT_TOKEN, OPENAI_API_KEY, and ECHOLOOM_* secrets from subprocess env slices.",
+            "Exit cleanly with descriptive error when another writer holds the lock."
+          ],
+          "verification": "Concurrency test proves second concurrent writer fails fast without database corruption."
+        }
+      ]
+    },
+    {
+      "id": "EPIC-03",
+      "title": "Tier 1 Official Discord Bot Sync, Scope & Live Gateway Tail",
+      "milestone": "M1",
+      "labels": ["ingestion", "security"],
+      "summary": "Deliver official Bot REST and Gateway ingestion locked down to specific owned channels with fixed CDN SSRF allowlisting on attachments.",
+      "prds": ["docs/requirements/prd-01-safe-multi-source-ingestion.md"],
+      "issues": [
+        {
+          "id": "ISS-08",
+          "title": "Implement official Bot REST client, echoloom init, and echoloom doctor",
+          "day": "Day 5 (2026-11-19)",
+          "milestoneLabel": "M1",
+          "labels": ["ingestion"],
+          "problem": "Bot onboarding needs instant feedback on Privileged Gateway Intents, guild pinning, and safe configuration defaults.",
+          "desiredBehavior": "init generates hardened config.toml defaulting sync.source to discord and attachment_text to false; doctor verifies live Bot intent and store health.",
+          "entryPoints": ["internal/discord/client.go", "internal/cli/init.go", "internal/cli/doctor.go"],
+          "acceptanceCriteria": [
+            "Explicitly prepend Bot prefix and mute third party transport logs carrying URLs.",
+            "Pin --guild in guild_ids cleanly instead of silently dumping every joined server.",
+            "Report actionable checks in echoloom doctor for Message Content Intent and SQLite health."
+          ],
+          "verification": "Mock Discord API test confirms doctor accurately catches missing intents and invalid tokens."
+        },
+        {
+          "id": "ISS-09",
+          "title": "Build backfill sync with --channels, category inclusion and thread expansion",
+          "day": "Day 5 (2026-11-19)",
+          "milestoneLabel": "M1",
+          "labels": ["ingestion"],
+          "problem": "Personal setups typically want one specific channel or support forum archived rather than ingesting an entire Discord server.",
+          "desiredBehavior": "sync paginates message history scoped to --channels or include_category_ids, auto expands forum threads, and saves durable cursors.",
+          "entryPoints": ["internal/syncer/sync.go", "internal/syncer/scope.go"],
+          "acceptanceCriteria": [
+            "Support --channels ID list, --full history backfill, and --include-stored-threads.",
+            "Auto expand forum and media channel IDs to archived and active threads.",
+            "Respect Discord rate limit Retry-After headers without blind retry storms."
+          ],
+          "verification": "Unit suite proves excluded sibling channels persist zero messages during sync."
+        },
+        {
+          "id": "ISS-10",
+          "title": "Implement live Gateway tail honoring channel permissions and runtime scope filters",
+          "day": "Day 6 (2026-11-20)",
+          "milestoneLabel": "M1",
+          "labels": ["ingestion"],
+          "problem": "Owned servers need low latency updates for new questions, edits, and deletions without exceeding scope.",
+          "desiredBehavior": "Gateway tail records MESSAGE_CREATE/UPDATE/DELETE into events while strictly honoring include_category_ids and exclude_channel_ids.",
+          "entryPoints": ["internal/syncer/tail.go", "internal/syncer/exclusions.go"],
+          "acceptanceCriteria": [
+            "Persist live message events and soft deletion timestamps accurately.",
+            "Drop gateway dispatches outside configured category/channel exclusions before SQLite writes.",
+            "Scrub gateway session endpoints from failure logs."
+          ],
+          "verification": "Mock gateway stream test verifies real time indexing and out of scope message rejection."
+        },
+        {
+          "id": "ISS-11",
+          "title": "Enforce strict HTTPS Discord CDN allowlist on attachment media and text fetches",
+          "day": "Day 6 (2026-11-20)",
+          "milestoneLabel": "M1",
+          "labels": ["security", "pbt"],
+          "problem": "Default text attachment fetching without host and redirect verification permits SSRF against internal or cloud metadata URLs.",
+          "desiredBehavior": "Unified attachment fetcher validates https port 443 and Discord CDN hostnames across every redirect hop before downloading bounded payloads.",
+          "entryPoints": ["internal/media/allowlist.go", "internal/syncer/enrichment.go"],
+          "acceptanceCriteria": [
+            "Allow strictly https:// port 443 to cdn.discordapp.com, media.discordapp.net, or images-ext-<digits>.discordapp.net.",
+            "Reject IP literals, loopback addresses, userinfo credentials, and redirects leaving the allowlist.",
+            "Bound text attachment reads to 8 KiB and media downloads to 100 MiB."
+          ],
+          "verification": "PBT 1 fuzzes 1,000 SSRF/redirect URL payloads with zero bypasses."
+        }
+      ]
+    },
+    {
+      "id": "EPIC-04",
+      "title": "Tier 2 & Tier 3 Non Owned Channel Ingestion & @me Quarantine",
+      "milestone": "M2",
+      "labels": ["ingestion", "security"],
+      "summary": "Enable compliant zero selfbot ingestion of external Discord channels the user does not administer, via passive disk cache wiretap and read only browser DOM snapshots.",
+      "prds": ["docs/requirements/prd-01-safe-multi-source-ingestion.md"],
+      "issues": [
+        {
+          "id": "ISS-12",
+          "title": "Build zero network desktop cache wiretap reader using traversal safe os.OpenRoot",
+          "day": "Day 7 (2026-11-21)",
+          "milestoneLabel": "M2",
+          "labels": ["ingestion", "security"],
+          "problem": "Users want to monitor external Discord servers without admin rights and without triggering ToS bans from user token selfbots.",
+          "desiredBehavior": "wiretap scans Discord Desktop local cache via os.OpenRoot with zero network calls, zero auth token reading, and zero raw blob persistence.",
+          "entryPoints": ["internal/wiretap/scan.go", "internal/wiretap/import.go"],
+          "acceptanceCriteria": [
+            "Read macOS Discord cache roots safely via Go os.OpenRoot (O_NOFOLLOW).",
+            "Exclude LevelDB authentication/token keys strictly from file traversal.",
+            "Verify zero outbound sockets opened during wiretap execution."
+          ],
+          "verification": "Offline test suite imports synthetic Discord Desktop cache fixtures with network disabled."
+        },
+        {
+          "id": "ISS-13",
+          "title": "Enforce strict @me personal DM quarantine across wiretap, search, and signals",
+          "day": "Day 8 (2026-11-22)",
+          "milestoneLabel": "M2",
+          "labels": ["security", "pbt"],
+          "problem": "Local Discord caches contain private DMs (@me) alongside community channels and must never bleed into content research or MCP outputs.",
+          "desiredBehavior": "Tag or skip @me messages on ingest and block private DM rows across default search, signal clusters, exports, and MCP handlers.",
+          "entryPoints": ["internal/wiretap/quarantine.go", "internal/store/isolation.go"],
+          "acceptanceCriteria": [
+            "Skip @me DM records during external wiretap runs by default.",
+            "Set collection_scope = 'private_dm' if explicitly imported into an isolated vault.",
+            "Enforce guild_id != '@me' filters in all search, signal, export, and MCP queries."
+          ],
+          "verification": "PBT 2 generates 1,000 interleaved @me and guild datasets asserting 0 DM rows leak."
+        },
+        {
+          "id": "ISS-14",
+          "title": "Build OpenCLI & Chrome DevTools MCP take_snapshot Discord tab parser",
+          "day": "Day 9 (2026-11-23)",
+          "milestoneLabel": "M2",
+          "labels": ["ingestion"],
+          "problem": "Viewing older external threads in Chrome Web gives cleaner DOM visibility than Chromium disk caches without using browser tokens.",
+          "desiredBehavior": "Snapshot importer ingests accessibility DOM JSON from opencli browser or chrome-devtools take_snapshot into normalized SQLite rows.",
+          "entryPoints": ["internal/snapshot/discord_dom.ts", "adapters/opencli-discord-readonly.js"],
+          "acceptanceCriteria": [
+            "Parse Discord Web channel header, message authors, timestamps, replies, and bodies cleanly.",
+            "Never query localStorage, document.cookie, or Discord gateway auth frames.",
+            "Tag every parsed row with source_tier = 'browser_snapshot'."
+          ],
+          "verification": "DOM snapshot fixture tests extract multi participant thread sequences with zero token reads."
+        },
+        {
+          "id": "ISS-15",
+          "title": "Implement cross tier bot_api + wiretap + browser_snapshot deduplication",
+          "day": "Day 8 (2026-11-22)",
+          "milestoneLabel": "M2",
+          "labels": ["storage", "pbt"],
+          "problem": "Archiving the same external channel via wiretap and browser snapshot must not double count questions or pollute clusters.",
+          "desiredBehavior": "Cross tier upsert reconciles Discord message snowflakes and normalized content hashes idempotently while upgrading incomplete metadata safely.",
+          "entryPoints": ["internal/store/dedup.go"],
+          "acceptanceCriteria": [
+            "Deduplicate on exact message snowflake ID when available across tiers.",
+            "Fall back to deterministic (channel_id, minute_bucket, author_hash, content_sha256) key.",
+            "Preserve higher fidelity bot_api metadata if ingested after cache or snapshot runs."
+          ],
+          "verification": "PBT 5 replays 1,000 shuffled cross tier ingest sequences confirming exact row counts."
+        }
+      ]
+    },
+    {
+      "id": "EPIC-05",
+      "title": "discord-cli Analytics Surface & Anonymized Signal Radar",
+      "milestone": "M2",
+      "labels": ["analytics", "security"],
+      "summary": "Deliver fast jackwener/discord-cli terminal analytics, deterministic JSON/YAML contracts, external PII scrubbing, and actionable content topic clustering.",
+      "prds": ["docs/requirements/prd-02-local-knowledge-and-signal-engine.md"],
+      "issues": [
+        {
+          "id": "ISS-16",
+          "title": "Implement today, recent, search, stats, top, timeline, export, and purge commands",
+          "day": "Day 10 (2026-11-24)",
+          "milestoneLabel": "M2",
+          "labels": ["analytics"],
+          "problem": "Users and coding agents need rich analytics commands beyond raw SQL queries.",
+          "desiredBehavior": "CLI implements the complete discord-cli command suite scoped cleanly by channel ID or unambiguous channel name.",
+          "entryPoints": ["internal/cli/query.go", "internal/cli/timeline.go", "internal/cli/data.go"],
+          "acceptanceCriteria": [
+            "Implement today, recent, search, stats, top, timeline (--by hour|day), export, and purge.",
+            "Stop with channel_resolution_error listing matching channel IDs when name is ambiguous.",
+            "Exclude private_dm and soft deleted rows from analytical rollups."
+          ],
+          "verification": "CLI golden tests verify each analytics command completes under 20 ms on local SQLite."
+        },
+        {
+          "id": "ISS-17",
+          "title": "Implement deterministic SCHEMA.md JSON / YAML output envelope",
+          "day": "Day 10 (2026-11-24)",
+          "milestoneLabel": "M2",
+          "labels": ["analytics", "mcp"],
+          "problem": "Downstream scripts and Kiro agents break when CLI stdout mixes logs with inconsistent table text.",
+          "desiredBehavior": "Structured formatter emits uniform { ok, schema_version: '1', data | error } JSON or YAML output while routing logs to stderr.",
+          "entryPoints": ["internal/cli/output.go"],
+          "acceptanceCriteria": [
+            "Auto switch non TTY stdout to YAML unless --json or --format rich is passed.",
+            "Include actionable error codes and recovery hints in failure envelopes.",
+            "Guarantee zero diagnostic log lines appear on stdout."
+          ],
+          "verification": "Output schema parser validates every CLI command in both --json and --yaml modes."
+        },
+        {
+          "id": "ISS-18",
+          "title": "Build PII & username anonymizer for desktop_wiretap and browser_snapshot rows",
+          "day": "Day 11 (2026-11-25)",
+          "milestoneLabel": "M2",
+          "labels": ["security", "analytics"],
+          "problem": "Synthesizing content from external Discord communities must never expose external member usernames, IDs, or private contact info.",
+          "desiredBehavior": "Deterministic anonymizer strips mentions, handles, IDs, emails, and IPs, replacing speakers with ephemeral session aliases before clustering.",
+          "entryPoints": ["internal/signals/anonymize.go"],
+          "acceptanceCriteria": [
+            "Replace user handles and mentions with session scoped labels (Participant_A, Participant_B).",
+            "Scrub email addresses, phone patterns, Discord snowflakes, and secret query tokens.",
+            "Enforce mandatory anonymization gate on wiretap and browser_snapshot text before MCP or LLM access."
+          ],
+          "verification": "Adversarial fixture tests confirm zero handles, emails, or numeric Discord IDs survive."
+        },
+        {
+          "id": "ISS-19",
+          "title": "Implement echoloom signals topic clusterer and opportunity ranker",
+          "day": "Day 12 (2026-11-26)",
+          "milestoneLabel": "M2",
+          "labels": ["analytics"],
+          "problem": "High volume chat channels make it hard to spot which bugs or questions deserve a dedicated tutorial post on your own server.",
+          "desiredBehavior": "signals groups anonymized discussions into ranked buckets (unanswered_question, recurring_bug, feature_gap, high_engagement_topic).",
+          "entryPoints": ["internal/signals/cluster.go"],
+          "acceptanceCriteria": [
+            "Rank clusters by frequency, unique anonymized participant count, and recency.",
+            "Output concise structured briefs ready for Voice Composer drafting.",
+            "Support time window filters (--hours, --days) and guild/channel isolation."
+          ],
+          "verification": "Deterministic clustering test extracts expected top 3 topics from seeded developer chat fixtures."
+        }
+      ]
+    },
+    {
+      "id": "EPIC-06",
+      "title": "VoiceGate Content Studio, stdio MCP Server & confirmLive Governor",
+      "milestone": "M3",
+      "labels": ["voice-gate", "mcp"],
+      "summary": "Build ListeningKit inspired voiceGate style checks, AI slop rejection, hot reloading stdio MCP tools, SQLite claim locks, and dry run confirmLive write protection.",
+      "prds": ["docs/requirements/prd-03-voice-gated-content-studio-and-mcp.md"],
+      "issues": [
+        {
+          "id": "ISS-20",
+          "title": "Build owner writing profile extractor (echoloom voice index)",
+          "day": "Day 13 (2026-11-27)",
+          "milestoneLabel": "M3",
+          "labels": ["voice-gate"],
+          "problem": "Agent drafted Discord posts sound generic unless grounded in the owner's actual cadence and technical formatting habits.",
+          "desiredBehavior": "voice index builds a local style fingerprint strictly from the owner's own authored messages in owned servers.",
+          "entryPoints": ["src/voice/profile.ts"],
+          "acceptanceCriteria": [
+            "Restrict training corpus exclusively to --owner-id messages inside owned channels.",
+            "Compute sentence length bands, code block ratio, greeting patterns, and preferred terminology.",
+            "Persist style profile locally in SQLite without external API transmission."
+          ],
+          "verification": "Profile test produces deterministic style vector from fixture owner post corpus."
+        },
+        {
+          "id": "ISS-21",
+          "title": "Implement voiceGate, watermarkReadingOf AI slop blocker and overlap detector",
+          "day": "Day 13 (2026-11-27)",
+          "milestoneLabel": "M3",
+          "labels": ["voice-gate", "pbt"],
+          "problem": "Drafts can accidentally retain hidden LLM Unicode characters, cliché prose phrases, or copy too closely from external source questions.",
+          "desiredBehavior": "voiceGate rejects hidden artifacts, AI dash punctuation, and > 12 word source overlaps before any outbound draft can enter approved state.",
+          "entryPoints": ["src/voice/gate.ts", "src/voice/watermark.ts"],
+          "acceptanceCriteria": [
+            "Detect and fail aiArtifacts for zero width spaces, em/en dashes, spaced hyphens, and pasted HTML.",
+            "Reject drafts exceeding 12 consecutive word n gram overlap with any external ingested message (plagiarismRisk).",
+            "Return exact violation codes, offsets, and actionable rewrite hints."
+          ],
+          "verification": "PBT 3 injects slop glyphs and verbatim source spans across 1,000 runs expecting 100% rejection."
+        },
+        {
+          "id": "ISS-22",
+          "title": "Build hot reloading stdio MCP server (echoloom-mcp) with play discovery",
+          "day": "Day 14 (2026-11-28)",
+          "milestoneLabel": "M3",
+          "labels": ["mcp"],
+          "problem": "AI coding assistants need a unified stdio MCP bridge with live reload and multi agent claim locks so agents never duplicate replies.",
+          "desiredBehavior": "echoloom-mcp serves play guides, signal reads, voiceGate checks, dry run previews, and claim locked writes cleanly over stdio.",
+          "entryPoints": ["src/mcp/server.ts", "src/mcp/reload_proxy.ts"],
+          "acceptanceCriteria": [
+            "Expose get_play_guide, search_signals, get_channel_context, score_voice_gate, preview_outbound, and publish_approved.",
+            "Emit tools/list_changed cleanly when updated on disk between active jobs.",
+            "Enforce SQLite claim locks preventing two agents from claiming the same cluster simultaneously."
+          ],
+          "verification": "MCP stdio integration harness executes complete discovery -> draft -> claim -> preview sequence."
+        },
+        {
+          "id": "ISS-23",
+          "title": "Implement confirmLive outbound safety governor, rate cap and digest scheduler",
+          "day": "Day 15 (2026-11-29)",
+          "milestoneLabel": "M3",
+          "labels": ["voice-gate", "security", "pbt"],
+          "problem": "Autonomous agents with live posting credentials can spam owned Discord channels if approval gates or rate caps can be bypassed.",
+          "desiredBehavior": "Governor enforces dry run previews by default, requires live + confirmLive + approvedBy, limits sends per day, and compiles morning briefings.",
+          "entryPoints": ["src/governor/outbound.ts", "src/digest/morning.ts"],
+          "acceptanceCriteria": [
+            "Return non mutating diff preview unless live: true, confirmLive: true, and non empty approvedBy are passed.",
+            "Enforce >= 5s inter message delay, 25/day channel cap, immediate halt on HTTP 429, and outbound_ledger audit rows.",
+            "Generate echoloom digest --hours 24 daily signal and draft briefing."
+          ],
+          "verification": "PBT 4 fuzzes 1,000 malformed flag combinations proving 0 unapproved write executions."
+        }
+      ]
+    },
+    {
+      "id": "EPIC-07",
+      "title": "Haunted Signal Ops Web Console & Playwright Visual & Accessibility QA",
+      "milestone": "M3",
+      "labels": ["ui-ux", "security"],
+      "summary": "Build the local loopback web ops dashboard displaying anonymized clusters, voiceGate diffs, outbound audit timelines, and confirmLive dialogs verified by Playwright.",
+      "prds": ["docs/requirements/prd-03-voice-gated-content-studio-and-mcp.md", "docs/requirements/prd-04-kiroween-spec-hooks-pbt-and-daily-ship.md"],
+      "issues": [
+        {
+          "id": "ISS-24",
+          "title": "Build loopback bound Haunted Signal Loom web console (127.0.0.1 + CSRF)",
+          "day": "Day 16 (2026-11-30)",
+          "milestoneLabel": "M3",
+          "labels": ["ui-ux", "security"],
+          "problem": "Human operators reviewing multiple anonymized clusters and pending drafts benefit from a crisp local UI alongside terminal MCP workflows.",
+          "desiredBehavior": "Web console binds strictly to loopback 127.0.0.1, requires per session CSRF tokens on mutations, and renders responsive Haunted Signal Loom views.",
+          "entryPoints": ["src/web/server.ts", "src/web/ui/App.tsx"],
+          "acceptanceCriteria": [
+            "Reject non loopback listen addresses and validate CSRF headers on every state changing endpoint.",
+            "Render source tier badges (bot_api, wiretap, browser_snapshot) and voiceGate diagnostic chips.",
+            "Operate cleanly at both 1280x800 desktop and 390x844 mobile viewports without clipping."
+          ],
+          "verification": "Server security test verifies unauthenticated POST fails with 403 and responsive layout renders clean."
+        },
+        {
+          "id": "ISS-25",
+          "title": "Build outbound audit ledger timeline and two step approval drawer",
+          "day": "Day 16 (2026-11-30)",
+          "milestoneLabel": "M3",
+          "labels": ["ui-ux", "kiroween"],
+          "problem": "Operators reviewing queued drafts need full visibility into outbound receipts, cooldown windows, and explicit two step confirmation state.",
+          "desiredBehavior": "Render filterable outbound_ledger events alongside an accessible two step approval drawer inspecting voiceGate diffs and approval receipts.",
+          "entryPoints": ["src/web/ui/AuditTimeline.tsx", "src/web/ui/ApprovalDrawer.tsx"],
+          "acceptanceCriteria": [
+            "Filter outbound_ledger events cleanly by publish status and target owned channel inside Haunted Signal Loom.",
+            "Inspect voiceGate scores, cooldown state, and approval receipt hashes prior to confirmation.",
+            "Require explicit confirmation dialog click before calling approveDraft endpoint with keyboard focus management and ARIA status."
+          ],
+          "verification": "Playwright test steps through keyboard navigation, modal confirmation, and ledger filtering cleanly."
+        },
+        {
+          "id": "ISS-26",
+          "title": "Run Playwright Visual & Accessibility QA via chrome-devtools MCP + live screenshot proof",
+          "day": "Day 17 (2026-12-01)",
+          "milestoneLabel": "M3",
+          "labels": ["ui-ux", "kiroween"],
+          "problem": "Visual polish, contrast compliance, zero horizontal scrollbars, and error states must be proven in a real headless Chromium browser.",
+          "desiredBehavior": "Run automated Playwright + Chrome DevTools accessibility checks across every state and capture before/after screenshots.",
+          "entryPoints": ["scripts/qa-visual.mjs", "docs/visual-proof/"],
+          "acceptanceCriteria": [
+            "Pass contrast, overflow, console error zeroing, and state machine transition checks across all interactive states.",
+            "Save deterministic 1280x800 desktop and 390x844 mobile screenshots under docs/visual-proof/.",
+            "Complete 4,000 Free Kiro Credits request before December 1 cutoff."
+          ],
+          "verification": "Visual QA runner exits 0 across desktop and mobile viewports with zero a11y/layout errors."
+        }
+      ]
+    },
+    {
+      "id": "EPIC-08",
+      "title": "Property Based Testing, Deployment, Video & Kiroween Ship",
+      "milestone": "M4",
+      "labels": ["pbt", "kiroween"],
+      "summary": "Finalize 5 generative PBT invariant suites, prove end to end 4 agent Kiro Crew execution, deploy live public demo showcase, record the < 3:00 video, and submit on Devpost.",
+      "prds": ["docs/requirements/prd-04-kiroween-spec-hooks-pbt-and-daily-ship.md"],
+      "issues": [
+        {
+          "id": "ISS-27",
+          "title": "Complete all 5 PBT suites (1,000+ runs each) and wire Kiro Crew end to end run",
+          "day": "Day 18 (2026-12-02)",
+          "milestoneLabel": "M4",
+          "labels": ["pbt", "kiroween"],
+          "problem": "Kiroween judges look closely for nontrivial invariants discovered via Property Based Testing rather than trivial unit tests alone.",
+          "desiredBehavior": "All 5 generative PBT suites execute >= 1,000 iterations each across CI and Kiro hooks, alongside verified 4 agent Kiro Crew workflow logs.",
+          "entryPoints": ["tests/pbt/", ".kiro/hooks/hooks.json"],
+          "acceptanceCriteria": [
+            "Pass PBT 1 (SSRF), PBT 2 (@me isolation), PBT 3 (voiceGate slop & overlap), PBT 4 (confirmLive governor), and PBT 5 (idempotent dedup).",
+            "Execute full Kiro Crew 4 role workflow trace with zero bypassed gates.",
+            "Document real edge cases surfaced by PBT for section 7 of the Devpost write up."
+          ],
+          "verification": "Full test suite passes all 5 PBT suites (>= 5,000 total fuzz cases) in CI under 15 seconds."
+        },
+        {
+          "id": "ISS-28",
+          "title": "Deploy live demo URL, film < 3:00 YouTube video, and finalize Devpost submission",
+          "day": "Day 19 to Day 20 (2026-12-03 to 2026-12-04)",
+          "milestoneLabel": "M4",
+          "labels": ["kiroween"],
+          "problem": "Missing the < 3:00 YouTube cap, live app link, public MIT repo /.kiro check, or 8 section Kiro write up causes immediate Devpost disqualification.",
+          "desiredBehavior": "Live demo app, public YouTube video (< 3:00), public GitHub repo (harrymove-ctrl), bonus blog/social posts, and complete 8 part write up ship before deadline.",
+          "entryPoints": ["docs/SUBMISSION.md", "docs/video/STORYBOARD.md", "README.md"],
+          "acceptanceCriteria": [
+            "Verify live deployed interactive demo URL with clean read only sample dataset.",
+            "Publish < 3:00 public YouTube demo video using original non copyrighted audio.",
+            "Publish #KiroweenHackathon26 Social Blitz post, Bonus Blog post, and submit Devpost entry before Dec 4 2:00 PM PST."
+          ],
+          "verification": "Pre submission audit script verifies LICENSE, committed /.kiro, PBT pass, video length < 180s, and live URL HTTP 200."
+        }
+      ]
+    }
+  ]
+}
