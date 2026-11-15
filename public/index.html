@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EchoLoom | Local Community Signal Vault &amp; Kiro Spec Studio</title>
-  <meta name="description" content="Turn community Discord threads into verified Kiro specs, generative property based test invariants, and voice gated guides without touching user tokens.">
-  <meta name="theme-color" content="#3565F5">
+  <title>EchoLoom | Local Discord Signal Vault &amp; Kiro Spec Studio</title>
+  <meta name="description" content="Turn noisy community Discord threads into verified Kiro specs, replayable property tests, and voice gated guides without touching personal user tokens.">
+  <meta name="theme-color" content="#335FEA">
   <link rel="canonical" href="https://harrymove-ctrl.github.io/echoloom/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://harrymove-ctrl.github.io/echoloom/">
-  <meta property="og:title" content="EchoLoom | Local Community Signal Vault &amp; Kiro Spec Studio">
-  <meta property="og:description" content="Sub 15ms SQLite FTS5 archive, zero selfbot ingestion, five PBT invariants, and voice gated stdio MCP server built with Kiro Specs and Hooks.">
+  <meta property="og:title" content="EchoLoom | Local Discord Signal Vault &amp; Kiro Spec Studio">
+  <meta property="og:description" content="Local SQLite FTS5 archive, zero selfbot ingestion, five generative test invariants, and voice gated stdio MCP server built with Kiro Specs and Hooks.">
   <meta property="og:image" content="https://harrymove-ctrl.github.io/echoloom/og-card.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Schoolbell&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -24,32 +24,85 @@
 
   <div class="sky-stage" id="top">
     <div class="cloud-layer" aria-hidden="true">
-      <div class="cloud cloud-left"></div>
-      <div class="cloud cloud-top-left"></div>
-      <div class="cloud cloud-mid-top"></div>
-      <div class="cloud cloud-right-top"></div>
-      <div class="cloud cloud-right"></div>
+      <svg class="sky-cloud sky-cloud-a" viewBox="0 0 360 160" fill="none">
+        <defs>
+          <linearGradient id="cloudGradA" x1="180" y1="8" x2="180" y2="152" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.72"/>
+            <stop offset="100%" stop-color="#DCE8FF" stop-opacity="0.16"/>
+          </linearGradient>
+          <pattern id="cloudDotsA" width="10" height="10" patternUnits="userSpaceOnUse">
+            <circle cx="2.5" cy="2.5" r="1.4" fill="#FFFFFF" fill-opacity="0.34"/>
+          </pattern>
+        </defs>
+        <path d="M58 148C28 148 8 128 8 104C8 82 24 64 46 61C55 31 84 12 118 12C146 12 170 25 184 46C198 33 217 26 238 26C280 26 314 58 318 98C339 101 352 117 352 135C352 143 347 148 338 148H58Z" fill="url(#cloudGradA)"/>
+        <path d="M58 148C28 148 8 128 8 104C8 82 24 64 46 61C55 31 84 12 118 12C146 12 170 25 184 46C198 33 217 26 238 26C280 26 314 58 318 98C339 101 352 117 352 135C352 143 347 148 338 148H58Z" fill="url(#cloudDotsA)"/>
+      </svg>
+
+      <svg class="sky-cloud sky-cloud-b" viewBox="0 0 260 120" fill="none">
+        <defs>
+          <linearGradient id="cloudGradB" x1="130" y1="6" x2="130" y2="112" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.62"/>
+            <stop offset="100%" stop-color="#DCE8FF" stop-opacity="0.1"/>
+          </linearGradient>
+          <pattern id="cloudDotsB" width="9" height="9" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.2" fill="#FFFFFF" fill-opacity="0.3"/>
+          </pattern>
+        </defs>
+        <path d="M40 110C19 110 6 96 6 78C6 61 19 48 36 47C45 23 68 8 96 8C123 8 146 23 155 46C164 40 175 37 187 37C218 37 242 59 245 88C253 91 256 97 256 103C256 108 252 110 245 110H40Z" fill="url(#cloudGradB)"/>
+        <path d="M40 110C19 110 6 96 6 78C6 61 19 48 36 47C45 23 68 8 96 8C123 8 146 23 155 46C164 40 175 37 187 37C218 37 242 59 245 88C253 91 256 97 256 103C256 108 252 110 245 110H40Z" fill="url(#cloudDotsB)"/>
+      </svg>
+
+      <svg class="sky-cloud sky-cloud-c" viewBox="0 0 320 150" fill="none">
+        <defs>
+          <linearGradient id="cloudGradC" x1="160" y1="8" x2="160" y2="142" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#DCE8FF" stop-opacity="0.14"/>
+          </linearGradient>
+        </defs>
+        <path d="M52 140C24 140 6 122 6 99C6 78 21 60 42 58C52 28 80 10 114 10C148 10 176 28 186 56C198 46 214 40 232 40C272 40 304 69 306 107C314 111 316 118 316 126C316 135 310 140 298 140H52Z" fill="url(#cloudGradC)"/>
+        <path d="M52 140C24 140 6 122 6 99C6 78 21 60 42 58C52 28 80 10 114 10C148 10 176 28 186 56C198 46 214 40 232 40C272 40 304 69 306 107C314 111 316 118 316 126C316 135 310 140 298 140H52Z" fill="url(#cloudDotsA)"/>
+      </svg>
+
+      <svg class="sky-cloud sky-cloud-d" viewBox="0 0 210 96" fill="none">
+        <path d="M32 88C16 88 4 76 4 61C4 47 15 36 29 35C37 16 56 4 78 4C100 4 119 16 127 35C134 31 143 29 152 29C177 29 197 48 199 71C204 74 206 79 206 83C206 86 203 88 198 88H32Z" fill="url(#cloudGradB)"/>
+      </svg>
     </div>
 
     <header class="top-nav-shell">
       <nav class="top-nav" aria-label="Primary navigation">
         <div class="nav-pill nav-pill-left">
           <a class="brand-chip" href="#top" aria-label="EchoLoom Home">
-            <span class="brand-mark" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none">
-                <path d="M7 11.5C10 8.5 13 8.5 16 11.5C19 14.5 22 14.5 25 11.5" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/>
-                <path d="M7 16.5C10 13.5 13 13.5 16 16.5C19 19.5 22 19.5 25 16.5" stroke="#DCE8FF" stroke-width="2.6" stroke-linecap="round"/>
-                <path d="M7 21.5C10 18.5 13 18.5 16 21.5C19 24.5 22 24.5 25 21.5" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/>
-              </svg>
+            <span class="brand-sticker-wrap">
+              <canvas class="sticker-canvas sticker-brand" data-sticker="loomVault" role="img" aria-label="EchoLoom isometric vault"></canvas>
             </span>
             <span class="brand-name">EchoLoom</span>
           </a>
 
           <ul class="nav-links" role="list">
-            <li><a href="#workbench">Live Studio</a></li>
-            <li><a href="#how-it-works">How it works</a></li>
-            <li><a href="#invariants">PBT Invariants</a></li>
-            <li><a href="#lineage">Lineage</a></li>
+            <li>
+              <a href="#workbench">
+                <canvas class="sticker-canvas sticker-nav" data-sticker="signalRadar" role="img" aria-hidden="true"></canvas>
+                <span>Studio</span>
+              </a>
+            </li>
+            <li>
+              <a href="#stickers">
+                <canvas class="sticker-canvas sticker-nav" data-sticker="crewBot" role="img" aria-hidden="true"></canvas>
+                <span>Stickers</span>
+              </a>
+            </li>
+            <li>
+              <a href="#mcp-flow">
+                <canvas class="sticker-canvas sticker-nav" data-sticker="kiroSpecPad" role="img" aria-hidden="true"></canvas>
+                <span>MCP Plays</span>
+              </a>
+            </li>
+            <li>
+              <a href="#setup">
+                <canvas class="sticker-canvas sticker-nav" data-sticker="safetyLock" role="img" aria-hidden="true"></canvas>
+                <span>Setup</span>
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -62,16 +115,16 @@
             <span class="badge-star">Open Source</span>
           </a>
           <a class="nav-text-link" href="https://github.com/harrymove-ctrl/echoloom/tree/main/.kiro" target="_blank" rel="noopener noreferrer">/.kiro Specs</a>
-          <a class="nav-cta" href="#workbench">Try workbench</a>
+          <a class="nav-cta" href="#workbench">Open Studio</a>
           <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-expanded="false" aria-controls="mobileDrawer">Menu</button>
         </div>
       </nav>
 
       <div class="mobile-drawer" id="mobileDrawer" hidden>
-        <a href="#workbench">Live Studio</a>
-        <a href="#how-it-works">How it works</a>
-        <a href="#invariants">PBT Invariants</a>
-        <a href="#lineage">Lineage</a>
+        <a href="#workbench">Studio Workbench</a>
+        <a href="#stickers">Isometric Sticker Kit</a>
+        <a href="#mcp-flow">MCP Plays &amp; Invariants</a>
+        <a href="#setup">3 Step Setup</a>
         <a href="https://github.com/harrymove-ctrl/echoloom/tree/main/.kiro" target="_blank" rel="noopener noreferrer">Inspect /.kiro Specs</a>
         <a href="https://github.com/harrymove-ctrl/echoloom" target="_blank" rel="noopener noreferrer">Open GitHub Repository</a>
       </div>
@@ -79,55 +132,74 @@
 
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-inner">
-        <div class="hero-emblem" aria-hidden="true">
-          <svg viewBox="0 0 48 48" fill="none">
-            <rect width="48" height="48" rx="14" fill="rgba(255,255,255,0.2)"/>
-            <path d="M11 18C15.5 13.5 19.5 13.5 24 18C28.5 22.5 32.5 22.5 37 18" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
-            <path d="M11 25C15.5 20.5 19.5 20.5 24 25C28.5 29.5 32.5 29.5 37 25" stroke="#DCE8FF" stroke-width="3.5" stroke-linecap="round"/>
-            <path d="M11 32C15.5 27.5 19.5 27.5 24 32C28.5 36.5 32.5 36.5 37 32" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <button class="hero-pedestal" type="button" id="heroStickerBtn" aria-label="Replay EchoLoom Vault animation">
+          <canvas class="sticker-canvas sticker-hero" data-sticker="loomVault" role="img" aria-label="Animated EchoLoom isometric SQLite vault"></canvas>
+        </button>
 
-        <h1 class="hero-title" id="hero-title">Turn community threads<br>into verified Kiro specs.</h1>
+        <h1 class="hero-title" id="hero-title">Turn Discord noise<br>into verified Kiro specs.</h1>
 
-        <p class="hero-sub">Sub 15ms local SQLite FTS5 vault, three zero selfbot ingestion lanes, five generative property based test invariants, and a voice gated stdio MCP server.</p>
+        <p class="hero-sub">Read community channels locally, compile structured specs under /.kiro, and require voiceGate plus human confirmLive before shipping.</p>
 
         <div class="hero-card-wrap">
-          <div class="callout-note" aria-hidden="true">
-            <span class="callout-line">0 user tokens</span>
-            <span class="callout-line">100% local SQLite</span>
-            <svg class="callout-arrow" viewBox="0 0 44 34" fill="none">
-              <path d="M36 4C27 7 19 14 10 26M10 26L12 16M10 26L20 25" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <div class="hero-doodle-callout" data-keepout="true" aria-hidden="true">
+            <span class="doodle-text">Zero user tokens</span>
+            <span class="doodle-sub">100% local SQLite</span>
+            <svg class="doodle-arrow" viewBox="0 0 64 42" fill="none">
+              <path d="M56 6C42 8 27 16 14 34M14 34L17 20M14 34L27 33" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
 
-          <div class="hero-pill-card">
-            <a class="hero-octo-link" href="https://github.com/harrymove-ctrl/echoloom" target="_blank" rel="noopener noreferrer" aria-label="Open EchoLoom GitHub repository">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor" d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12c0 4.6 3 8.5 7.2 9.9.5.1.7-.2.7-.5v-2c-2.9.6-3.5-1.2-3.5-1.2-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.3-.3-4.8-1.2-4.8-5.2 0-1.1.4-2.1 1.1-2.8-.1-.3-.5-1.4.1-2.8 0 0 .9-.3 2.9 1.1.9-.2 1.8-.4 2.7-.4s1.8.1 2.7.4c2-1.4 2.9-1.1 2.9-1.1.6 1.4.2 2.5.1 2.8.7.8 1.1 1.7 1.1 2.8 0 4-2.5 4.9-4.8 5.2.4.3.8 1 .8 2v2.9c0 .3.2.6.7.5 4.2-1.4 7.2-5.3 7.2-9.9 0-5.8-4.7-10.5-10.5-10.5z"/>
-              </svg>
-            </a>
+          <div class="hero-pillow-card" id="heroPillowCard">
+            <div class="pillow-sticker-col">
+              <canvas class="sticker-canvas sticker-pillow" data-sticker="kiroSpecPad" role="img" aria-label="Animated Kiro Spec compiler pad"></canvas>
+            </div>
 
-            <div class="hero-card-body">
-              <div class="hero-card-eyebrow">Open Source under MIT · harrymove-ctrl/echoloom</div>
-              <div class="hero-card-headline">Built for Kiro Specs, Hooks &amp; <span class="ink-tag">PBT</span></div>
+            <div class="pillow-content">
+              <div class="pillow-eyebrow">Free &amp; Open Source under MIT · harrymove-ctrl/echoloom</div>
+              <div class="pillow-headline">
+                Ship specs, not <span class="crossed-doodle">selfbot bans</span>, in minutes.
+              </div>
 
               <div class="clone-row">
                 <code class="clone-cmd" id="cloneCommand">git clone https://github.com/harrymove-ctrl/echoloom.git</code>
-                <button class="copy-btn" id="copyCloneBtn" type="button" aria-label="Copy git clone command">Copy command</button>
+                <button class="fi-copy copy-pill-btn" id="copyCloneBtn" type="button" data-copy-target="cloneCommand" aria-label="Copy git clone command">
+                  <span class="fi-copy-idle">Copy</span>
+                  <span class="fi-copy-done" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg>
+                    Copied
+                  </span>
+                </button>
                 <a class="spec-btn" href="https://github.com/harrymove-ctrl/echoloom/tree/main/.kiro" target="_blank" rel="noopener noreferrer">Inspect /.kiro</a>
               </div>
             </div>
           </div>
 
-          <div class="works-with" aria-label="Compatible runtimes and tools">
+          <div class="works-with" aria-label="Supported AI editors and runtimes">
             <span class="works-label">WORKS WITH</span>
-            <span class="tool-chip">Kiro IDE</span>
-            <span class="tool-chip">Kiro CLI</span>
-            <span class="tool-chip">Kiro Crew</span>
-            <span class="tool-chip">Claude Code</span>
-            <span class="tool-chip">MCP stdio</span>
-            <span class="tool-chip">SQLite FTS5</span>
+            <span class="work-chip">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M8 1.5l5.5 3.2v6.6L8 14.5l-5.5-3.2V4.7L8 1.5zm0 2.1L4.3 5.7v4.6L8 12.4l3.7-2.1V5.7L8 3.6z"/></svg>
+              <span>Kiro IDE</span>
+            </span>
+            <span class="work-chip">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M2.5 3.5l4.2 4.5-4.2 4.5h2.2L9 8 4.7 3.5H2.5zm6 8.5H14v-1.6H8.5V12z"/></svg>
+              <span>Kiro CLI 3.2</span>
+            </span>
+            <span class="work-chip">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M5 3.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5zm6 0a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM2 12.5c0-1.9 1.6-3 3.5-3S9 10.6 9 12.5v1H2v-1zm6.8 1v-1c0-.9-.3-1.7-.8-2.3.5-.4 1.2-.7 2-.7 2 0 3.5 1.1 3.5 3v1H8.8z"/></svg>
+              <span>Kiro Crew</span>
+            </span>
+            <span class="work-chip">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M8 1.2l1.6 4.4 4.4-1.6-2.8 3.7 3.9 2.3-4.6.4.4 4.6-2.9-3.6L5.1 15l.4-4.6L1 10l3.8-2.3L2 4l4.4 1.6L8 1.2z"/></svg>
+              <span>Claude Code</span>
+            </span>
+            <span class="work-chip">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M8 2a6 6 0 100 12A6 6 0 008 2zm0 2.2a3.8 3.8 0 110 7.6 3.8 3.8 0 010-7.6zm0 1.8a2 2 0 100 4 2 2 0 000-4z"/></svg>
+              <span>Codex</span>
+            </span>
+            <span class="work-chip">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M3 2l10 5.5-4.4 1.6L7 13.5 3 2z"/></svg>
+              <span>Cursor</span>
+            </span>
           </div>
         </div>
       </div>
@@ -135,211 +207,307 @@
   </div>
 
   <main id="main-content">
-    <section class="section section-light" id="workbench" aria-labelledby="workbench-title">
+    <section class="section-stickers" id="stickers" aria-labelledby="stickers-title">
       <div class="wrap">
-        <div class="section-head">
-          <h2 id="workbench-title">From raw community question to verified spec and safe draft.</h2>
-          <p class="section-lead">Pick a real anonymized community signal cluster below to inspect EchoLoom's CLI JSON contract, compiled <code>/.kiro/specs/</code> invariant, and <code>voiceGate</code> plus <code>confirmLive</code> approval diff.</p>
+        <div class="stickers-head">
+          <div>
+            <span class="eyebrow-pill">Interactive Kit</span>
+            <h2 class="section-title" id="stickers-title">Built with six living modules,<br>rendered in extruded slab art.</h2>
+            <p class="section-sub">Switch colour palettes or playback speed across all live canvas stickers below. Click any card to replay its keyframe bounce.</p>
+          </div>
+
+          <div class="sticker-controls" aria-label="Sticker palette and clock controls">
+            <div class="control-group" role="group" aria-label="Colour palette" id="paletteButtons"></div>
+            <div class="control-group" role="group" aria-label="Playback speed" id="speedButtons">
+              <button class="ctrl-pill is-active" type="button" data-speed="1">1x</button>
+              <button class="ctrl-pill" type="button" data-speed="0.5">0.5x</button>
+              <button class="ctrl-pill" type="button" id="pauseClockBtn" aria-pressed="false">Pause</button>
+              <button class="ctrl-pill ctrl-dark" type="button" id="replayAllBtn">Replay</button>
+            </div>
+          </div>
         </div>
 
-        <div class="workbench-shell">
-          <aside class="scenario-list" aria-label="Community signal clusters">
-            <div class="pane-label">1. Select Signal Cluster</div>
+        <div class="sticker-grid" id="stickerShowcaseGrid"></div>
+      </div>
+    </section>
 
-            <button class="scenario-btn is-active" type="button" data-scenario="handoff" aria-pressed="true">
-              <span class="scenario-meta">Cluster 01 · Unanswered Question</span>
-              <strong class="scenario-title">Cross agent session handoff continuity</strong>
-              <span class="scenario-foot">External forum · PII scrubbed · Spec ready</span>
-            </button>
+    <section class="section-workbench" id="workbench" aria-labelledby="workbench-title">
+      <div class="wrap">
+        <div class="workbench-head">
+          <span class="eyebrow-pill">Live Interactive Studio</span>
+          <h2 class="section-title centered" id="workbench-title">From messy forum thread<br>to verified spec and safe reply.</h2>
+          <p class="section-sub centered">Pick an input lane and layout variant. Search threads, test empty state recovery, verify voiceGate, and toggle human confirmLive approval.</p>
+        </div>
 
-            <button class="scenario-btn" type="button" data-scenario="blast" aria-pressed="false">
-              <span class="scenario-meta">Cluster 02 · Benchmark Signal</span>
-              <strong class="scenario-title">Autonomous repair blast radius guard</strong>
-              <span class="scenario-foot">60 CI repair runs · 81 vs. 5 line diff cap</span>
-            </button>
+        <div class="modality-strip" id="modalityPills" role="tablist" aria-label="Workflow modalities"></div>
+        <p class="modality-note" id="modalityNote"></p>
 
-            <button class="scenario-btn" type="button" data-scenario="mcp" aria-pressed="false">
-              <span class="scenario-meta">Cluster 03 · Integration Friction</span>
-              <strong class="scenario-title">Project local stdio MCP planner binding</strong>
-              <span class="scenario-foot">Zero restart proxy · Role scoped tools</span>
-            </button>
-          </aside>
+        <div class="arena-toolbar">
+          <div class="arena-label">Layout Arena Variants:</div>
+          <div class="arena-pills" id="arenaButtons" role="group" aria-label="Layout Arena Variants">
+            <button class="arena-btn is-active" type="button" data-arena="split" aria-pressed="true">Split Inbox</button>
+            <button class="arena-btn" type="button" data-arena="spec" aria-pressed="false">Spec &amp; Diff Deck</button>
+            <button class="arena-btn" type="button" data-arena="terminal" aria-pressed="false">Compact Terminal</button>
+          </div>
+        </div>
 
-          <div class="inspector-pane">
-            <div class="inspector-bar">
-              <div class="tab-group" role="tablist" aria-label="EchoLoom output views">
-                <button class="tab-btn is-active" role="tab" type="button" data-tab="cli" aria-selected="true" id="tab-cli">Vault &amp; CLI JSON</button>
-                <button class="tab-btn" role="tab" type="button" data-tab="spec" aria-selected="false" id="tab-spec">Compiled /.kiro Spec</button>
-                <button class="tab-btn" role="tab" type="button" data-tab="voice" aria-selected="false" id="tab-voice">VoiceGate &amp; Diff</button>
-              </div>
-
-              <button class="live-toggle" id="confirmLiveBtn" type="button" aria-pressed="false">
+        <div class="studio-screen" id="studioScreen" data-screen-overlay="true" data-variant="split">
+          <div class="studio-inner">
+            <div class="studio-topbar">
+              <div class="studio-brand-bar">
                 <span class="status-dot" aria-hidden="true"></span>
-                <span id="confirmLiveLabel">Mode: Dry Run Preview</span>
+                <span class="studio-window-title">EchoLoom Workspace Vault</span>
+              </div>
+              <div class="studio-meta-pills">
+                <span class="meta-chip" id="latencyChip">Local query 6.4ms</span>
+                <span class="meta-chip" id="dmIsolateChip">Personal DMs Isolated</span>
+                <span class="meta-chip digest-pill" id="digestPill" title="">0x8832…58f</span>
+              </div>
+            </div>
+
+            <div class="studio-grid">
+              <aside class="studio-inbox" aria-label="Signal Cluster Inbox">
+                <div class="inbox-search-row">
+                  <label class="sr-only" for="threadSearch">Filter signal clusters</label>
+                  <input class="search-input" id="threadSearch" type="search" placeholder="Filter clusters (handoff, blast, mcp)..." autocomplete="off">
+                </div>
+                <div class="thread-list" id="threadList" role="listbox" aria-label="Community signal clusters"></div>
+                <div class="thread-empty" id="threadEmpty" hidden>
+                  <p>No archived threads match that filter.</p>
+                  <button class="clear-filter-btn" id="clearFilterBtn" type="button">Clear filter</button>
+                </div>
+              </aside>
+
+              <div class="studio-workspace" id="studioWorkspace">
+                <div class="workspace-header">
+                  <div class="workspace-title-block">
+                    <span class="cluster-badge" id="activeBadge">Context Loss</span>
+                    <h3 class="workspace-thread-title" id="activeTitle">Cross agent session handoff continuity</h3>
+                  </div>
+                  <span class="tier-pill" id="activeTier">desktop_wiretap</span>
+                </div>
+
+                <div class="pane-thread" id="paneThread">
+                  <div class="msg-bubble-incoming">
+                    <div class="msg-author-row">
+                      <strong id="activeAuthor">@cloud_builder</strong>
+                      <span id="activeMeta">Community Forum · 2m ago</span>
+                    </div>
+                    <p id="activeQuestionBody"></p>
+                  </div>
+                </div>
+
+                <div class="pane-spec" id="paneSpec">
+                  <div class="spec-header-row">
+                    <span class="spec-file-pill" id="activeSpecPath" title="">.kiro/specs/handoff-ledger.md</span>
+                    <span class="invariant-pill" id="activeInvariant">INV-02 + INV-05</span>
+                  </div>
+                  <p class="spec-summary-text" id="activeSpecSummary"></p>
+                  <ol class="req-list" id="activeReqList"></ol>
+                </div>
+
+                <div class="pane-terminal" id="paneTerminal">
+                  <div class="terminal-head">
+                    <span>echoloom-mcp stdio dry run envelope</span>
+                    <span class="voice-chip" id="voiceChip">PASS · 0 banned marks</span>
+                  </div>
+                  <pre class="terminal-pre" id="terminalPreview"></pre>
+                </div>
+
+                <div class="pane-composer">
+                  <div class="draft-header">
+                    <span class="draft-title">VoiceGate Draft Preview</span>
+                    <span class="draft-score" id="voiceOverlapLabel">Verbatim overlap: 3 words (limit 12)</span>
+                  </div>
+                  <p class="draft-body" id="draftBody"></p>
+
+                  <div class="governor-bar">
+                    <div class="approver-field">
+                      <label class="sr-only" for="approverInput">Approver GitHub handle</label>
+                      <input class="approver-input" id="approverInput" type="text" placeholder="Enter approver handle (or click chip)" autocomplete="off">
+                      <button class="quick-fill-btn" id="quickFillApproverBtn" type="button">@harrymove-ctrl</button>
+                    </div>
+                    <div class="governor-actions">
+                      <button class="gov-btn gov-primary" id="approveLiveBtn" type="button">Approve Live Write</button>
+                      <button class="gov-btn gov-secondary" id="resetDryBtn" type="button">Reset Dry Run</button>
+                    </div>
+                  </div>
+                  <div class="governor-feedback" id="governorFeedback" role="status" aria-live="polite">
+                    Dry run preview mode active. Outbound Discord transport stays locked until approved.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-mcp" id="mcp-flow" aria-labelledby="mcp-title">
+      <div class="wrap">
+        <div class="mcp-banner">
+          <div class="mcp-banner-head">
+            <span class="mcp-pill">NEW · ECHOLOOM MCP</span>
+            <h2 class="mcp-title" id="mcp-title">Give your Kiro agent clean community memory without a dashboard.</h2>
+            <p class="mcp-sub">One stdio server reads local SQLite FTS5, checks style rules, and refuses live outbound mutations without your handle.</p>
+          </div>
+
+          <div class="play-steps-grid">
+            <article class="play-card">
+              <div class="play-card-top">
+                <canvas class="sticker-canvas sticker-play" data-sticker="crewBot" role="img" aria-label="Kiro Crew step"></canvas>
+                <span class="step-num">Step 1</span>
+              </div>
+              <h3>Ask Kiro in plain English</h3>
+              <p>Query real community friction inside Kiro IDE, Kiro CLI, or Claude Code instead of skimming noisy chat backlogs.</p>
+            </article>
+
+            <article class="play-card">
+              <div class="play-card-top">
+                <canvas class="sticker-canvas sticker-play" data-sticker="kiroSpecPad" role="img" aria-label="Spec compiler step"></canvas>
+                <span class="step-num">Step 2</span>
+              </div>
+              <h3>EchoLoom compiles &amp; checks</h3>
+              <p>Searches SQLite locally, generates verifiable requirements in /.kiro/specs/, and runs voiceGate linting automatically.</p>
+            </article>
+
+            <article class="play-card">
+              <div class="play-card-top">
+                <canvas class="sticker-canvas sticker-play" data-sticker="safetyLock" role="img" aria-label="Human safety lock step"></canvas>
+                <span class="step-num">Step 3</span>
+              </div>
+              <h3>Approve once to ship</h3>
+              <p>Every draft rests safely in dry run until you inspect the diff and pass confirmLive with your handle.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="compare-grid" aria-label="Safety comparison">
+          <div class="compare-card compare-risk">
+            <div class="compare-tag">Typical Unhardened Scripts</div>
+            <h3>Selfbot scraping &amp; unguarded replies</h3>
+            <ol class="compare-list">
+              <li>Reads personal Discord user tokens from local Chromium storage.</li>
+              <li>Mixes @me private direct messages into search results and LLM prompts.</li>
+              <li>Follows arbitrary attachment redirects toward private network endpoints.</li>
+              <li>Posts robotic filler directly to channels on a blind cron loop.</li>
+            </ol>
+          </div>
+
+          <div class="compare-card compare-safe">
+            <div class="compare-tag">EchoLoom Architecture</div>
+            <h3>Three safe lanes &amp; five fuzz invariants</h3>
+            <ol class="compare-list">
+              <li>Zero user tokens: scans passive local caches via os.OpenRoot or public DOM snapshots.</li>
+              <li>Schema enforced quarantine keeps personal direct messages invisible across tools.</li>
+              <li>Strict HTTPS port 443 Discord CDN allowlist rejects private IP redirects.</li>
+              <li>VoiceGate strips banned filler while confirmLive blocks accidental sends.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="invariants-block">
+          <div class="invariants-head">
+            <div>
+              <span class="eyebrow-pill">Property Based Testing</span>
+              <h2 class="section-title" id="invariants-title">Five formal safety contracts tested across adversarial inputs.</h2>
+            </div>
+            <button class="fuzz-btn" id="runFuzzBtn" type="button">Run 1,000x Fuzz Check</button>
+          </div>
+          <div class="invariant-cards" id="invariantCards"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-setup" id="setup" aria-labelledby="setup-title">
+      <div class="wrap">
+        <div class="workbench-head">
+          <span class="eyebrow-pill">Quick Start</span>
+          <h2 class="section-title centered" id="setup-title">Set up EchoLoom in three steps.</h2>
+          <p class="section-sub centered">Zero SaaS accounts, zero API seat subscriptions, MIT licensed source from top to bottom.</p>
+        </div>
+
+        <div class="setup-grid">
+          <article class="setup-card">
+            <span class="setup-index">1</span>
+            <h3>Clone &amp; verify /.kiro</h3>
+            <p>Pull the repository and confirm all specs, hooks, and steering files are tracked at root.</p>
+            <div class="setup-cmd-row">
+              <code id="cmdStep1">git clone https://github.com/harrymove-ctrl/echoloom.git</code>
+              <button class="fi-copy setup-copy-btn" type="button" data-copy-target="cmdStep1" aria-label="Copy step 1 command">
+                <span class="fi-copy-idle">Copy</span>
+                <span class="fi-copy-done" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg>
+                  Copied
+                </span>
               </button>
             </div>
+          </article>
 
-            <div class="inspector-metrics" id="inspectorMetrics">
-              <span class="metric-item">FTS5 Query: <strong>6.4 ms</strong></span>
-              <span class="metric-item">DM Leaks: <strong>0</strong></span>
-              <span class="metric-item">User Tokens: <strong>0</strong></span>
-              <span class="metric-item">VoiceGate: <strong>PASS</strong></span>
+          <article class="setup-card">
+            <span class="setup-index">2</span>
+            <h3>Sync locally without tokens</h3>
+            <p>Scan your own passive desktop cache or owned bot token inside os.OpenRoot sandboxing.</p>
+            <div class="setup-cmd-row">
+              <code id="cmdStep2">go run ./cmd/echoloom wiretap --dry-run</code>
+              <button class="fi-copy setup-copy-btn" type="button" data-copy-target="cmdStep2" aria-label="Copy step 2 command">
+                <span class="fi-copy-idle">Copy</span>
+                <span class="fi-copy-done" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg>
+                  Copied
+                </span>
+              </button>
             </div>
+          </article>
 
-            <pre class="code-stage" id="workbenchCode" tabindex="0" aria-live="polite"></pre>
+          <article class="setup-card">
+            <span class="setup-index">3</span>
+            <h3>Wire echoloom-mcp to Kiro</h3>
+            <p>Run the stdio MCP bridge so Kiro Crew reads threads, runs voiceGate, and prepares diffs.</p>
+            <div class="setup-cmd-row">
+              <code id="cmdStep3">bun run mcp -- --project-root .</code>
+              <button class="fi-copy setup-copy-btn" type="button" data-copy-target="cmdStep3" aria-label="Copy step 3 command">
+                <span class="fi-copy-idle">Copy</span>
+                <span class="fi-copy-done" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg>
+                  Copied
+                </span>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div class="faq-block" aria-label="Quick answers">
+          <h3 class="faq-heading">Quick answers</h3>
+          <div class="faq-list">
+            <details open>
+              <summary>Does EchoLoom ever read personal Discord user tokens?</summary>
+              <p>Never. Owned channels use official Bot tokens stored in the OS keychain, while unowned community servers use passive read only desktop cache scanning or explicit browser DOM snapshots.</p>
+            </details>
+            <details>
+              <summary>How are personal direct messages kept separate?</summary>
+              <p>Invariant INV-02 enforces schema level @me quarantine across search queries, topic clusters, and every MCP tool so personal messages never surface in public engineering outputs.</p>
+            </details>
+            <details>
+              <summary>What is included inside /.kiro at repository root?</summary>
+              <p>The committed /.kiro folder ships specs (requirements.md, design.md, tasks.md), automated hooks (hooks.json), and compact domain steering rules (product.md, tech.md, security.md).</p>
+            </details>
+            <details>
+              <summary>What does the MIT open source version include?</summary>
+              <p>Everything: Go storage engine, three ingestion adapters, TypeScript MCP server, voiceGate checker, property based tests, and these six fun-isometric stickers.</p>
+            </details>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section section-white" id="how-it-works" aria-labelledby="how-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="how-title">Four deterministic stages from noisy channel to local binary.</h2>
-          <p class="section-lead">Every stage enforces strict privilege isolation so research channels you do not administer stay completely separated from owned project publishing bots.</p>
-        </div>
-
-        <div class="steps-grid">
-          <article class="step-card">
-            <div class="step-num">01</div>
-            <h3>Three Tier Safe Ingestion</h3>
-            <p>Owned servers sync through official scoped Discord Bot tokens stored in macOS Keychain. External servers capture passive desktop cache entries via <code>os.OpenRoot</code> or read only browser DOM snapshots without ever extracting personal <code>localStorage</code> user tokens.</p>
-          </article>
-
-          <article class="step-card">
-            <div class="step-num">02</div>
-            <h3>Local SQLite FTS5 Vault</h3>
-            <p>Normalized events write to a <code>0600</code> local SQLite WAL database indexed with FTS5 for sub <code>15 ms</code> queries. Personal <code>@me</code> direct messages are quarantined by schema and blocked from every search, signal cluster, and MCP read by default.</p>
-          </article>
-
-          <article class="step-card">
-            <div class="step-num">03</div>
-            <h3>Kiro Specs, Hooks &amp; Crew</h3>
-            <p>Anonymous signal clusters compile directly into structured <code>/.kiro/specs/</code> contracts, enforced by <code>/.kiro/steering/</code> boundaries and automated <code>/.kiro/hooks/</code> quality gates executed by four specialized Kiro Crew agents.</p>
-          </article>
-
-          <article class="step-card">
-            <div class="step-num">04</div>
-            <h3>VoiceGate &amp; Reloadable MCP</h3>
-            <p>Drafted guides pass <code>voiceGate</code> scoring against the owner's writing style while stripping AI filler, hidden characters, dashed punctuation, and external verbatim overlap before <code>echoloom-mcp</code> exposes dry run previews for human <code>confirmLive</code> approval.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light" id="invariants" aria-labelledby="invariants-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="invariants-title">Five formal Property Based Testing invariants.</h2>
-          <p class="section-lead">Defined in <code>.kiro/specs/requirements.md</code> and verified across <code>1,000+</code> generated adversarial inputs per invariant instead of relying solely on happy path examples.</p>
-        </div>
-
-        <div class="table-wrap">
-          <table class="invariant-table">
-            <thead>
-              <tr>
-                <th scope="col">Invariant ID</th>
-                <th scope="col">Subsystem</th>
-                <th scope="col">Mathematical Contract Enforced</th>
-                <th scope="col">Verification Target</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>INV-01</code></td>
-                <td>Attachment SSRF Guard</td>
-                <td>Accepts attachment media fetches only over HTTPS port 443 to allowlisted Discord CDN hosts with zero IP literals across up to 3 redirects.</td>
-                <td><code>1,000+</code> fuzzed URLs</td>
-              </tr>
-              <tr>
-                <td><code>INV-02</code></td>
-                <td><code>@me</code> DM Quarantine</td>
-                <td>Default CLI search, signal clusterer, draft context, and MCP read tools return zero rows where <code>guild_id == "@me"</code> across arbitrary interleavings.</td>
-                <td><code>1,000+</code> mixed store states</td>
-              </tr>
-              <tr>
-                <td><code>INV-03</code></td>
-                <td><code>voiceGate</code> Filter</td>
-                <td>Rejects every candidate containing zero width Unicode artifacts, forbidden dash punctuation, raw HTML tags, or more than 12 consecutive external source words.</td>
-                <td><code>1,000+</code> mutated drafts</td>
-              </tr>
-              <tr>
-                <td><code>INV-04</code></td>
-                <td><code>confirmLive</code> Governor</td>
-                <td>Discord write transport executes only when <code>live: true</code>, <code>confirmLive: true</code>, and non empty <code>approvedBy</code> are all satisfied concurrently.</td>
-                <td><code>1,000+</code> flag permutations</td>
-              </tr>
-              <tr>
-                <td><code>INV-05</code></td>
-                <td>Cross Tier Idempotency</td>
-                <td>Replaying shuffled duplicate events across Bot API, desktop cache, and browser snapshots converges to identical row counts and FTS5 index entries.</td>
-                <td><code>1,000+</code> shuffled streams</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-white" id="lineage" aria-labelledby="lineage-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="lineage-title">Built on proven open source foundations, with hard security gaps closed.</h2>
-          <p class="section-lead">EchoLoom synthesizes battle tested local architecture from five upstream projects for the Kiroween Frankenstein category while fixing real operational vulnerabilities by specification.</p>
-        </div>
-
-        <div class="table-wrap">
-          <table class="invariant-table">
-            <thead>
-              <tr>
-                <th scope="col">Reference Ancestor</th>
-                <th scope="col">What EchoLoom Adopts</th>
-                <th scope="col">Hardening Upgrade in EchoLoom</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>openclaw/discrawl</code></td>
-                <td>Pure Go SQLite WAL + FTS5 local indexing, Keychain ACL store, zero network cache concept.</td>
-                <td>Closes SSRF gap on attachment URLs, swaps default <code>source = "both"</code> to isolate <code>@me</code> DMs, and hardens SQL URI escaping.</td>
-              </tr>
-              <tr>
-                <td><code>jackwener/discord-cli</code></td>
-                <td>Ergonomic analytics verbs (<code>today</code>, <code>recent</code>, <code>top</code>, <code>timeline</code>) and deterministic JSON envelope.</td>
-                <td>Removes personal browser user token extraction completely to eliminate account ban risk.</td>
-              </tr>
-              <tr>
-                <td><code>jackwener/OpenCLI</code></td>
-                <td>Read only DOM snapshot pattern for browser tabs where Bot access does not exist.</td>
-                <td>Standardizes Discord Web message/embed/reply selectors into typed non interactive snapshot imports.</td>
-              </tr>
-              <tr>
-                <td><code>ListeningKit (Log)</code></td>
-                <td>Sub 15 ms local reads, reloadable <code>stdio</code> MCP server, <code>voiceGate</code>, and <code>confirmLive</code> governor.</td>
-                <td>Applies editorial clarity and dry run outbound safety to Discord engineering communities and Kiro specs.</td>
-              </tr>
-              <tr>
-                <td><code>oblien/mindwire</code></td>
-                <td>Daemon orchestration, role isolated multi agent boundaries, and filesystem sandboxing.</td>
-                <td>Maps agent separation directly onto four Kiro Crew specialists with automated root guard hooks.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-cta" aria-labelledby="cta-title">
-      <div class="wrap">
-        <div class="cta-banner">
+        <div class="bottom-cta">
           <div>
-            <div class="kicker kicker-light">Kiroween 2026 Submission</div>
-            <h2 id="cta-title">Inspect every PRD, epic, steering rule, and hook directly on GitHub.</h2>
-            <p class="cta-copy">EchoLoom ships its complete <code>/.kiro/{specs,hooks,steering}</code> tree unignored at repository root under the MIT License.</p>
+            <span class="bottom-eyebrow">OPEN SOURCE · KIRO SPECS, HOOKS &amp; PBT</span>
+            <h2>Inspect every spec, invariant, and sticker on GitHub.</h2>
+            <p>MIT licensed by harrymove-ctrl with complete /.kiro architecture committed cleanly at root.</p>
           </div>
-          <div class="cta-actions">
-            <a class="cta-primary" href="https://github.com/harrymove-ctrl/echoloom" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
-            <a class="cta-secondary" href="https://github.com/harrymove-ctrl/echoloom/tree/main/docs/epics" target="_blank" rel="noopener noreferrer">Browse 8 Epics &amp; 28 Issues</a>
+          <div class="bottom-cta-actions">
+            <a class="cta-white" href="https://github.com/harrymove-ctrl/echoloom" target="_blank" rel="noopener noreferrer">Open Repository</a>
+            <a class="cta-ghost" href="https://github.com/harrymove-ctrl/echoloom/tree/main/.kiro" target="_blank" rel="noopener noreferrer">Browse /.kiro</a>
           </div>
         </div>
       </div>
@@ -347,29 +515,38 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div>
-        <div class="footer-brand">EchoLoom</div>
-        <p class="footer-note">Local first community signal vault, spec compiler, and voice gated MCP studio built under MIT License by <code>harrymove-ctrl</code>.</p>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>EchoLoom</strong>
+        <p>Local Discord signal vault, Kiro spec compiler, and voice gated MCP studio under MIT License.</p>
       </div>
-      <div>
-        <div class="footer-heading">Kiro Artifacts</div>
-        <ul class="footer-list" role="list">
-          <li><a href="https://github.com/harrymove-ctrl/echoloom/tree/main/.kiro/specs" target="_blank" rel="noopener noreferrer">Requirements, Design &amp; Tasks</a></li>
-          <li><a href="https://github.com/harrymove-ctrl/echoloom/tree/main/.kiro/steering" target="_blank" rel="noopener noreferrer">Product, Tech &amp; Security Steering</a></li>
-          <li><a href="https://github.com/harrymove-ctrl/echoloom/blob/main/.kiro/hooks/hooks.json" target="_blank" rel="noopener noreferrer">Automated Hook Definitions</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-heading">Specification Docs</div>
-        <ul class="footer-list" role="list">
-          <li><a href="https://github.com/harrymove-ctrl/echoloom/tree/main/docs/requirements" target="_blank" rel="noopener noreferrer">PRDs 01 through 04</a></li>
-          <li><a href="https://github.com/harrymove-ctrl/echoloom/blob/main/docs/NON_OWNED_CHANNEL_GUIDE.md" target="_blank" rel="noopener noreferrer">Non Owned Channel Guide</a></li>
-          <li><a href="https://github.com/harrymove-ctrl/echoloom/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a></li>
-        </ul>
+      <div class="footer-cols">
+        <div>
+          <h4>Kiro Artifacts</h4>
+          <a href="https://github.com/harrymove-ctrl/echoloom/blob/main/.kiro/specs/requirements.md" target="_blank" rel="noopener noreferrer">Requirements &amp; Invariants</a>
+          <a href="https://github.com/harrymove-ctrl/echoloom/blob/main/.kiro/specs/design.md" target="_blank" rel="noopener noreferrer">Architecture Design</a>
+          <a href="https://github.com/harrymove-ctrl/echoloom/blob/main/.kiro/hooks/hooks.json" target="_blank" rel="noopener noreferrer">Hook Gates</a>
+        </div>
+        <div>
+          <h4>Project Links</h4>
+          <a href="https://github.com/harrymove-ctrl/echoloom" target="_blank" rel="noopener noreferrer">GitHub Source</a>
+          <a href="https://github.com/harrymove-ctrl/echoloom/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
+          <button class="footer-debug-toggle" id="footerDebugToggle" type="button">QA Inspector (?debug=1)</button>
+        </div>
       </div>
     </div>
   </footer>
+
+  <aside class="debug-hud" id="debugHud" hidden aria-label="QA Telemetry Inspector">
+    <div class="debug-hud-head">
+      <strong>QA Inspector</strong>
+      <button class="debug-close-btn" id="debugCloseBtn" type="button">Close</button>
+    </div>
+    <div class="debug-metrics" id="debugMetrics"></div>
+    <div class="debug-actions">
+      <button class="debug-stress-btn" id="stressLongBtn" type="button" aria-pressed="false">Stress Long Values</button>
+    </div>
+  </aside>
 
   <script src="./app.js" defer></script>
 </body>

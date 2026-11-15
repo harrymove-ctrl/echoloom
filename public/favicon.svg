@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#2F62F6"/>
-  <path d="M16 23C21.5 17 26.5 17 32 23C37.5 29 42.5 29 48 23" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
-  <path d="M16 33C21.5 27 26.5 27 32 33C37.5 39 42.5 39 48 33" stroke="#DCE8FF" stroke-width="4.5" stroke-linecap="round"/>
-  <path d="M16 43C21.5 37 26.5 37 32 43C37.5 49 42.5 49 48 43" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
-  <circle cx="48" cy="23" r="3.5" fill="#93C5FD"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="EchoLoom Vault">
+  <rect width="64" height="64" rx="16" fill="#0f172a"/>
+  <polygon points="32,12 52,22 32,32 12,22" fill="#3565f5" stroke="#0b0b0f" stroke-width="3.2" stroke-linejoin="round"/>
+  <polygon points="12,22 32,32 32,50 12,40" fill="#2349c9" stroke="#0b0b0f" stroke-width="3.2" stroke-linejoin="round"/>
+  <polygon points="52,22 32,32 32,50 52,40" fill="#183496" stroke="#0b0b0f" stroke-width="3.2" stroke-linejoin="round"/>
+  <polygon points="32,17 44,23 32,29 20,23" fill="#ff58a8" stroke="#0b0b0f" stroke-width="2.6" stroke-linejoin="round"/>
+  <circle cx="48" cy="14" r="4" fill="#15b9a6" stroke="#0b0b0f" stroke-width="2"/>
 </svg>
